@@ -5,7 +5,7 @@ const TopNav = styled.nav`
   height: 100%;
   position: fixed;
   background: white;
-  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
   top: 0;
   left: 0;
   width: 70%;
@@ -22,7 +22,12 @@ const UnorderedList = styled.ul`
 const Anchor = styled.a`
   text-decoration: none;
   color: #521751;
-  font-size: 1.2rem;
+  font-size: 1.7rem;
+
+  &:hover {
+    color: orange;
+    cursor: pointer;
+  }
 `;
 
 const ItemList = styled.li`

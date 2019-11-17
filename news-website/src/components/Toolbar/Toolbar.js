@@ -26,7 +26,11 @@ const Items = styled.a`
 color: white;
  text-decoration: none;
  padding: 0 0.5rem;
- margin: 12px;`
+ margin: 12px;
+ font-size: 20px;
+ &:hover {
+    color: orange;
+    cursor: pointer;}`
 
  const Division = styled.div`
  display: flex;
