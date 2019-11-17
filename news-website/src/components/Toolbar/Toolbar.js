@@ -39,7 +39,7 @@ color: white;
  padding: 0;`
 
  const Crest = styled.div`
- margin-left: 0.5rem`
+ margin-left: 1rem`
 
  const Space = styled.div`
  flex: 1`
