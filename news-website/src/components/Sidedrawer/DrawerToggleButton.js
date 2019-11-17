@@ -24,10 +24,9 @@ const Line = styled.div`
   background: white;
 `;
 
-function DrawerToggleButton() {
-  const [drawer, setDrawer] = React.useState(false);
+function DrawerToggleButton(props) {
   return (
-    <TopButton className="toggle-button" onClick={() => setDrawer(!drawer)}>
+    <TopButton className="toggle-button" onClick={()=>props.toggleButton()}>
       <Line className="toggle-button_line" />
       <Line className="toggle-button_line" />
       <Line className="toggle-button_line" />

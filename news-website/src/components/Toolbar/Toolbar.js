@@ -5,8 +5,8 @@ import DrawerToggleButton from '../Sidedrawer/DrawerToggleButton'
 const Lead = styled.header`
   position: fixed;
   width: 100%;
-  background: burlywood;
-  height: 155px;
+  background: purple;
+  height: 70px;
   top: 0px;
   left: 0px;
 `;
@@ -25,7 +25,8 @@ flex-direction: row;`
 const Items = styled.a`
 color: white;
  text-decoration: none;
- padding: 0 0.5rem;`
+ padding: 0 0.5rem;
+ margin: 12px;`
 
  const Division = styled.div`
  display: flex;
@@ -39,17 +40,17 @@ color: white;
  padding: 0;`
 
  const Crest = styled.div`
- margin-left: 1rem`
+ margin-left: 1rem;`
 
  const Space = styled.div`
- flex: 1`
+ flex: 1;`
 
-function Toolbar() {
+function Toolbar(props) {
   return (
     <Lead className="toolbar">
       <Navigation className="toolbar_navigation">
         <div>
-        <DrawerToggleButton/>
+        <DrawerToggleButton toggleButton={props.toggleButton}/>
         </div>
         <Crest className="toolbar_logo">
           <Logo href="#">THE LOGO</Logo>

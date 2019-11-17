@@ -11,8 +11,9 @@ const Display = styled.div`
   left: 0;
 `;
 
-function Backdrop() {
-  return <Display className="backdrop"></Display>;
+function Backdrop(props) {
+    
+  return <Display className="backdrop" onClick={()=>props.toggleButton()}></Display>;
 }
 
 export default Backdrop;

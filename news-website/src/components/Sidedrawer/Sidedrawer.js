@@ -28,9 +28,9 @@ const Anchor = styled.a`
 const ItemList = styled.li`
   margin: 0.5rem 0;
 `;
-function Sidedrawer() {
+function Sidedrawer(props) {
   return (
-    <TopNav className="side-drawer">
+    <TopNav className="side-drawer" onClick={()=>props.toggleButton()}>
       <UnorderedList>
         <ItemList>
           <Anchor href="/">Latest News</Anchor>

@@ -6,25 +6,16 @@ import Backdrop from './components/Backdrop/Backdrop'
 
 function App() {
   const [drawer,setDrawer] = React.useState(false)
-
-  // drawerToggleClickHandler = ()=>{
-  //   setDrawer((drawer) => {
-  //     return{setDrawer:!drawer
-
-  //     }
-  //   })
-  // }
+  const toggleButton = ()=>{setDrawer(!drawer)}
   return (
     <div style={{height:'100%'}}>
-      <Toolbar/>
-      {drawer? <Backdrop/>: null}
-      {drawer? <Sidedrawer/> : null}
+      <Toolbar toggleButton={toggleButton}/>
+      {drawer? <Backdrop toggleButton={toggleButton}/>: null}
+      {drawer? <Sidedrawer toggleButton ={toggleButton}/> : null}
       <main style={{marginTop: '160px'}}>
       <p>This is the page content</p>
       </main>
-      
-      
-    </div>
+      </div>
   );
 }
 
