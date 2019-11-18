@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Router, Link  } from 'react-router-dom';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import axios from 'axios';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -44,6 +45,9 @@ const Button = styled.button`
     border: 1px solid #5C94BD;
 }
 `;
+
+const [users, setUsers] = useState([]);
+const [error, setError] = useState(null);
 
 
 function LogIn() {
@@ -98,7 +102,17 @@ const LogInForm = withFormik({
         remember_password: Yup.boolean()
     }),
 
-    // handleSubmit
+    handleSubmit(userData, formikbag){
+        axios.post("...", userData)
+            .then(response => {
+                formikbag.resetForm();
+                formikbag.setUsers([...formikbag.setUsers, response.data])
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+    }
+
 })(LogIn);
 
 export default LogInForm;
