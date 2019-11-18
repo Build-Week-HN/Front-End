@@ -28,6 +28,15 @@
     border: 1px solid #470938;;
 }
 
+.errorMessage{
+    color: red;
+    font-size: 0.8rem;
+    font-style: italic;
+    position: relative;
+    bottom: 15px;
+}
+
+
 .communityLinks{
     color: white;
     text-decoration: none;

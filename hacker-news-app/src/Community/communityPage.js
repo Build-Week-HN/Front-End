@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Route, NavLink } from 'react-router-dom';
 import CommentTemplate from './CommentTemplate';
 import Filter from './Filter';
-import AddComment from './AddComment';
+import AddCommentForm from './AddComment';
 
 const Container = styled.div`
     width: 100%;
@@ -23,6 +23,9 @@ const CommentsContainer = styled.div`
 `;
 
 function CommunityPage(props){
+
+    const [comments, setComments] = useState([]);
+    const [newComment, setNewComment] = useState({})
 
         return(
             <Container>
@@ -44,7 +47,11 @@ function CommunityPage(props){
                     path="/community/add-comment"
                     render={props => {
                         return (
-                        <AddComment {...props}/>)
+                        <AddCommentForm {...props}
+                        newComment={newComment}
+                        setNewComment={setNewComment}
+                        setComments={setComments}
+                        comment={comments}/>)
                     }}/>
                 <CommentsContainer >
                     <p>discussion board entries</p>

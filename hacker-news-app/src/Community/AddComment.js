@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Route, NavLink } from 'react-router-dom';
-import { withFormik, Field, Form } from 'formik'; 
+import { withFormik, Field, Form, ErrorMessage } from 'formik'; 
+import * as Yup from 'yup';
 
 const Container = styled.div`
-    width: 100%;
     padding: 10px 50px 25px;;
     margin: 0px auto;
+    color: white;
     background-color: #5C94BD;
     display: flex;
     justify-content: space-evenly;
@@ -25,21 +26,63 @@ function AddComment(props){
                 <CommentCard>
                     <Form>
                         <label> Date:
-                            <Field type="date" />
+                            <Field 
+                                type="date"
+                                name="date"/>
                         </label>
+
                         <label> Title:
-                            <Field type="text" />
+                            <Field 
+                                type="text"
+                                name="title"/>
                         </label>
+                        <ErrorMessage 
+                            name="title" 
+                            render={err => <div className="errorMessageComment">{err}</div>}/>
                         <label> Author:
-                            <Field type="text" />
-                        </label> <br />
-                        <label name="comment"> Comment:</label>
-                            <textarea name="comment" rows="10" cols="30">Type your comment here</textarea>
-                        <input type="submit" />
+                            <Field 
+                                type="text"
+                                name="author"/>
+                        </label> 
+                        <ErrorMessage 
+                            name="author" 
+                            render={err => <div className="errorMessageComment">{err}</div>}/>
+                <br />
+                        <textarea name="comment" rows="5" cols="90" placeholder="Type your comment here..."></textarea>
+                        <ErrorMessage 
+                            name="comment" 
+                            render={err => <div className="errorMessageComment">{err}</div>}/>
+                        <br /><input type="submit" />
                     </Form>
                 </CommentCard>
             </Container>
         )
 }
 
-export default AddComment;
+const AddCommentForm = withFormik({
+    mapPropsToValues() {
+        return{
+            date: "",
+            title: "",
+            author: "",
+            comment: ""
+        };
+    },
+
+    validationSchema: Yup.object().shape({
+        date: Yup.date(),
+        title: Yup.string().required("Please give your comment a title."),
+        author: Yup.string(),
+        comment: Yup.string().length(20, "Your comment must be at least 20 characters")
+    }),
+
+    handleSubmit(commentData, formikbag){
+        console.log(commentData);
+        // formikbag.resetForm();
+        // formikbag.props.setNewComment([...formikbag.props.comments, commentData]);
+    }
+
+
+})(AddComment)
+
+export default AddCommentForm;

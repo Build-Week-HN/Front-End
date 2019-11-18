@@ -1,6 +1,6 @@
 import React from 'react';
-import { Route, Link  } from 'react-router-dom';
-import { withFormik, Form, Field } from 'formik';
+import { Route, Link, } from 'react-router-dom';
+import { withFormik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import styled from 'styled-components';
@@ -66,11 +66,17 @@ function LogIn(props) {
                 type="input"
                 name="username"
                 placeholder="Username"/>
+            <ErrorMessage 
+            name="username" 
+            render={err => <div className="errorMessage">{err}</div>}/>
             <Field 
                 className="password"
                 type="passord"
                 name="password"
                 placeholder="Password"/>
+            <ErrorMessage 
+            name="password" 
+            render={err => <div className="errorMessage">{err}</div>}/>
             <br />
             <label>
                 Remember password?
