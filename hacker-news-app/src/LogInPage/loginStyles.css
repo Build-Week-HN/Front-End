@@ -1,0 +1,28 @@
+.username, .password {
+    width: 75%;
+    max-width: 300px;
+    border: none;
+    border-bottom: 2px solid #F2D6EB;
+    margin: 10px auto;
+    padding: 5px;
+    font-size: 1rem;
+}
+
+.remember_password {
+    margin: 10px;
+}
+
+.btn {
+    color: white;
+    background-color: #470938;
+    padding: 8px;
+    margin: 10px auto;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.btn:hover{
+    color: #470938;
+    background-color: white;
+    border: 1px solid #470938;;
+}

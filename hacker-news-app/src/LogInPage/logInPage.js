@@ -2,32 +2,60 @@ import React from 'react';
 import { Router, Link  } from 'react-router-dom';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import styled from 'styled-components';
+
+const Container = styled.div`
+    width: 400px;
+    border: 4px solid #470938;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+`;
+const H1 = styled.h1`
+    width: 101%;
+    position: relative;
+    right: 3px;
+    margin-top: 0px;
+    padding: 10px 0px;
+    background-color: #470938;
+    color: white;
+    border-radius: 2px;
+`;
+
 
 function LogIn() {
 
     return (
-        <div>
-        <Form>
-            <h1>Login</h1>
+        <Container>
+            <H1>Login</H1>
+            <Form>
             <Field
+                className="username"
                 type="input"
                 name="username"
-                placeholder="Username"
-                />
+                placeholder="Username"/>
             <Field 
+                className="password"
                 type="passord"
                 name="password"
-                placeholder="Password"
-                />
+                placeholder="Password"/>
+            <br />
             <label>
                 Remember password?
-                <Field type="checkbox" name="remember_password" />
+                <Field 
+                    className="remember_password"
+                    type="checkbox" 
+                    name="remember_password"/>
             </label>
-            <input type="submit" />
+            <br />
+            <input
+                className="btn" 
+                type="submit" />
             <p>Not registered yet? Register Now</p>
-            <button>REGISTER</button>
-        </Form>
-        </div>
+            <button className="btn" >REGISTER</button>
+            </Form>
+        </Container>
     )
 }
 
