@@ -5,12 +5,13 @@ import { withFormik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 const Container = styled.div`
-    padding: 10px 50px 25px;;
+    padding: 10px 10px 5px;;
     margin: 0px auto;
     color: white;
     background-color: #5C94BD;
     display: flex;
     justify-content: space-evenly;
+    line-height: 3;
 `;
 
 const CommentCard = styled.div`
@@ -48,7 +49,7 @@ function AddComment(props){
                             name="author" 
                             render={err => <div className="errorMessageComment">{err}</div>}/>
                 <br />
-                        <textarea name="comment" rows="5" cols="90" placeholder="Type your comment here..."></textarea>
+                        <Field as="textarea" name="comment" rows="5" cols="90" placeholder="Type your comment here..."/>
                         <ErrorMessage 
                             name="comment" 
                             render={err => <div className="errorMessageComment">{err}</div>}/>
@@ -73,13 +74,14 @@ const AddCommentForm = withFormik({
         date: Yup.date(),
         title: Yup.string().required("Please give your comment a title."),
         author: Yup.string(),
-        comment: Yup.string().length(20, "Your comment must be at least 20 characters")
+        comment: Yup.string().min(20, "Your comment must be at least 20 characters")
     }),
 
     handleSubmit(commentData, formikbag){
         console.log(commentData);
-        // formikbag.resetForm();
-        // formikbag.props.setNewComment([...formikbag.props.comments, commentData]);
+        console.log(formikbag);
+        formikbag.resetForm();
+        formikbag.props.setComments([...formikbag.props.comments, commentData]);
     }
 
 
