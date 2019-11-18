@@ -12,10 +12,7 @@ const TopButton = styled.button`
   padding: 0;
   box-sizing: border-box;
   justify-content: space-around;
-
-  & focus {
-    outline: none;
-  }
+  outline: none;
 `;
 
 const Line = styled.div`
@@ -26,7 +23,7 @@ const Line = styled.div`
 
 function DrawerToggleButton(props) {
   return (
-    <TopButton className="toggle-button" onClick={()=>props.toggleButton()}>
+    <TopButton className="toggle-button" onClick={() => props.toggleButton()}>
       <Line className="toggle-button_line" />
       <Line className="toggle-button_line" />
       <Line className="toggle-button_line" />

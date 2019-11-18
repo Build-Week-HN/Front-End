@@ -35,7 +35,7 @@ const ItemList = styled.li`
 `;
 function Sidedrawer(props) {
   return (
-    <TopNav className="side-drawer" onClick={()=>props.toggleButton()}>
+    <TopNav className="side-drawer" onClick={() => props.toggleButton()}>
       <UnorderedList>
         <ItemList>
           <Anchor href="/">Latest News</Anchor>
@@ -51,6 +51,12 @@ function Sidedrawer(props) {
         </ItemList>
         <ItemList>
           <Anchor href="/">Teams</Anchor>
+        </ItemList>
+        <ItemList>
+          <Anchor href="/">Register</Anchor>
+        </ItemList>
+        <ItemList>
+          <Anchor href="/">Login</Anchor>
         </ItemList>
       </UnorderedList>
     </TopNav>
