@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Router, Link  } from 'react-router-dom';
+import React from 'react';
+import { Route, Link  } from 'react-router-dom';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
@@ -13,6 +13,7 @@ const Container = styled.div`
     flex-direction: column;
     border-radius: 10px;
 `;
+
 const H1 = styled.h1`
     width: 101%;
     position: relative;
@@ -28,16 +29,18 @@ const RegistationContainer = styled.div`
     width: 80%;
     padding: 10px;
     border-top: 2px solid #470938;
-    margin: 10px auto;
+    margin: 20px auto 0px;
+    font-size: 0.8rem;
 `;
 
 const Button = styled.button`
     color: white;
     background-color: #5C94BD;
-    padding: 8px;
-    margin: 10px auto;
+    padding: 6px;
+    margin: 0px auto 10px;
     font-weight: bold;
     border-radius: 5px;
+    font-size: 0.6rem;
 
     &:hover{
     color: #5C94BD;
@@ -46,11 +49,13 @@ const Button = styled.button`
 }
 `;
 
-const [users, setUsers] = useState([]);
-const [error, setError] = useState(null);
+const P = styled.p`
+    margin: 0px auto;
+`;
 
 
-function LogIn() {
+function LogIn(props) {
+
 
     return (
         <Container>
@@ -81,7 +86,7 @@ function LogIn() {
             </Form>
             <RegistationContainer>
                 <p>Not registered yet? Register Now</p>
-                <Button>REGISTER</Button>
+                <Button>Register</Button>
             </RegistationContainer>
         </Container>
     )
@@ -102,16 +107,16 @@ const LogInForm = withFormik({
         remember_password: Yup.boolean()
     }),
 
-    handleSubmit(userData, formikbag){
-        axios.post("...", userData)
-            .then(response => {
-                formikbag.resetForm();
-                formikbag.setUsers([...formikbag.setUsers, response.data])
-            })
-            .catch(error => {
-                setError(error.message)
-            })
-    }
+    // handleSubmit(userData, formikbag){
+    //     axios.post("...", userData)
+    //         .then(response => {
+    //             formikbag.resetForm();
+    //             formikbag.props.setUsers([...formikbag.props.setUsers, response.data])
+    //         })
+    //         .catch(error => {
+    //             formikbag.props.setError(error.message)
+    //         });
+    // }
 
 })(LogIn);
 
