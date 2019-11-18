@@ -23,6 +23,28 @@ const H1 = styled.h1`
     border-radius: 2px;
 `;
 
+const RegistationContainer = styled.div`
+    width: 80%;
+    padding: 10px;
+    border-top: 2px solid #470938;
+    margin: 10px auto;
+`;
+
+const Button = styled.button`
+    color: white;
+    background-color: #5C94BD;
+    padding: 8px;
+    margin: 10px auto;
+    font-weight: bold;
+    border-radius: 5px;
+
+    &:hover{
+    color: #5C94BD;
+    background-color: white;
+    border: 1px solid #5C94BD;
+}
+`;
+
 
 function LogIn() {
 
@@ -52,9 +74,11 @@ function LogIn() {
             <input
                 className="btn" 
                 type="submit" />
-            <p>Not registered yet? Register Now</p>
-            <button className="btn" >REGISTER</button>
             </Form>
+            <RegistationContainer>
+                <p>Not registered yet? Register Now</p>
+                <Button>REGISTER</Button>
+            </RegistationContainer>
         </Container>
     )
 }
@@ -72,7 +96,9 @@ const LogInForm = withFormik({
         username: Yup.string().required("Please enter your username"),
         password: Yup.string().required("Please enter your password"),
         remember_password: Yup.boolean()
-    })
+    }),
+
+    // handleSubmit
 })(LogIn);
 
 export default LogInForm;
