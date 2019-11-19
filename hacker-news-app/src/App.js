@@ -59,7 +59,7 @@ function App() {
         exact path="/register"
         render={props => {
         return <Register {...props} setError={setError} /> 
-      }}/>;
+      }}/>
       <Route
         exact path="/login"
         render={props => {

@@ -8,10 +8,11 @@ import styled from 'styled-components';
 const Container = styled.div`
     width: 400px;
     border: 4px solid #470938;
-    margin: 50px auto;
+    margin: 100px auto;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
+    text-align: center;
 `;
 
 const H1 = styled.h1`
@@ -31,6 +32,7 @@ const RegistationContainer = styled.div`
     border-top: 2px solid #470938;
     margin: 20px auto 0px;
     font-size: 0.8rem;
+    text-align: center;
 `;
 
 const Button = styled.button`
