@@ -32,9 +32,11 @@ function App() {
     <section>
       {hnData.map((curr, index) => {
         return (
+          
           <ThemeProvider theme={theme}>
+            
             <Wrapper>
-              <HeaderText>Latest News:</HeaderText>
+            <HeaderText>Latest News:</HeaderText>
           <LatestNews
             key={index}
             text={curr.text}
