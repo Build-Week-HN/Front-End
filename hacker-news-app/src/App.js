@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Link } from 'react-router-dom';
 import axios from 'axios';
+import styled from 'styled-components';
 import LogInForm from './Components/LogInPage/logInPage';
 import CommunityPage from './Components/Community/communityPage.js';
 import Toolbar from './Components/Toolbar/Toolbar';
 import Sidedrawer from './Components/Sidedrawer/Sidedrawer';
 import Backdrop from './Components/Backdrop/Backdrop';
 import Register from './Components/Forms/Register';
+import Dashboard from './Components/UserArea/Dashboard';
+
+const Container = styled.div`
+  width: 100vw;
+`;
 
 function App() {
-  const [users, setUsers] = useState([]);
+  const [user, setUser] = useState();
+  const [userRoute, setUserRoute] = useState("/login");
   const [error, setError] = useState(null);
   const [hnData, sethnData] = useState([]);
   const [drawer,setDrawer] = useState(false)
@@ -26,7 +33,7 @@ function App() {
 }, []);
 
   return (
-    <div>
+    <Container>
       <Route 
         path="/"
         render={(props) => {
@@ -62,14 +69,23 @@ function App() {
       <Route
         exact path="/login"
         render={props => {
-          return <LogInForm {...props} setError={setError}/>;
+          return <LogInForm s
+              setError={setError} 
+              setUser={setUser} 
+              userRoute={userRoute}
+              setUserRoute={setUserRoute}/>;
       }}/>
+        <Route
+          exact path={`/Dashboard`}
+          render={props => {
+            return <Dashboard user={user}/>;
+        }}/>
       <Route
         exact path="/community"
         render={props => {
           return <CommunityPage {...props}/>;
       }}/>
-  </div>
+  </Container>
   );
 }
 

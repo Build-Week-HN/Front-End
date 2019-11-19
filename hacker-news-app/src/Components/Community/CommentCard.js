@@ -4,11 +4,10 @@ import { FaHeart, FaRegThumbsDown, FaRegThumbsUp } from 'react-icons/fa';
 
 
 const Container = styled.div`
-    width: 95%;
+    width: calc(100% - 2px);
     max-width: 900px;
     height: 110px;
     margin: 0px auto;
-    padding: 0px 40px;
     color: black;
     border: 1px solid #5C94BD;
     text-align:left;
@@ -27,8 +26,7 @@ const Reaction = styled.div`
     display: flex;
     flex-direction: column;
     line-height: 1.6;
-    position:absolute;
-    right: 20px;
+
 `;
 
 const Title = styled.p`

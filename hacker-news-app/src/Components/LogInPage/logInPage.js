@@ -1,9 +1,10 @@
 import React from 'react';
-import { Route, Link, } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import { withFormik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import styled from 'styled-components';
+import Dashboard from '../UserArea/Dashboard';
 
 const Container = styled.div`
     width: 400px;
@@ -35,7 +36,7 @@ const RegistationContainer = styled.div`
     text-align: center;
 `;
 
-const Button = styled.button`
+const Button = styled(NavLink)`
     color: white;
     background-color: #5C94BD;
     padding: 6px;
@@ -107,7 +108,7 @@ function LogIn(props) {
             render={err => <Error>{err}</Error>}/>
             <DataFields
                 className="password"
-                type="passord"
+                type="password"
                 name="password"
                 placeholder="Password"/>
             <ErrorMessage 
@@ -128,7 +129,8 @@ function LogIn(props) {
             </Form>
             <RegistationContainer>
                 <p>Not registered yet? Register Now</p>
-                <Button>Register</Button>
+                <Button
+                    to="/register">Register</Button>
             </RegistationContainer>
         </Container>
     )
@@ -150,17 +152,21 @@ const LogInForm = withFormik({
     }),
 
     handleSubmit(userData, formikbag){
-        axios.post("bw-hackernews.herokuapp.com/login", userData)
+        axios.post("https://bw-hackernews.herokuapp.com/login", userData)
             .then(response => {
                 formikbag.resetForm();
-                formikbag.props.setUsers([...formikbag.props.setUsers, response.data])
+                formikbag.props.setUser(response)
+                localStorage.set("token", response.data.token)
+                formikbag.props.history.push(`dashboard/${userData.username}`)
+                console.log(response);
+                console.log(formikbag);
             })
             .catch(error => {
                 formikbag.props.setError(error.message)
-                alert(`You have entered an invalid username and/or password`)
+                alert(`You have entered an invalid username and/or password`, error.message)
             });
-    }
-
+     
+    },
 })(LogIn);
 
 export default LogInForm;

@@ -7,8 +7,9 @@ import AddCommentForm from './AddComment';
 
 const Container = styled.div`
     width: 100%;
-    max-width: 900px;
-    margin: 0px auto;
+    margin: 10px 0px;
+    position: relative;
+    right: 8px;
 `;
 
 const SubHeading = styled.div`
@@ -18,6 +19,8 @@ const SubHeading = styled.div`
     display: flex;
     justify-content: space-evenly;
     text-decoration: none;
+    color: white;
+    text-decoration: none;
 `;
 
 const CommunityLinks = styled(NavLink)`
@@ -25,7 +28,9 @@ const CommunityLinks = styled(NavLink)`
     text-decoration: none;
 `;
 
+
 const CommentsContainer = styled.div`
+    width: 100%;
 `;
 
 function CommunityPage(props){
@@ -45,10 +50,12 @@ function CommunityPage(props){
                 <SubHeading>
                     <CommunityLinks
                         to="/community/filter"
+                        activeClassName="selectedLink"
                         >Filter</CommunityLinks>
                     <CommunityLinks
                         to="/community/add-comment"
-                        className="communityLinks">Add Comment</CommunityLinks>
+                        activeClassName="selectedLink"
+                        >Add Comment</CommunityLinks>
                 </SubHeading>
                 <Route  
                     path="/community/filter"
