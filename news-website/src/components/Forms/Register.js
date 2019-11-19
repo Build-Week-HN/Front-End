@@ -3,7 +3,7 @@ import { withFormik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import axios from "axios";
 
-function Register() {
+function Register(props) {
   const [list, setList] = React.useState({
     username: "",
     password: ""
@@ -51,17 +51,16 @@ const Registration = withFormik({
     password: yup.string().required("PLEASE CHOOSE A PASSWORD")
   }),
   handleSubmit(values, tools) {
-    // console.log(values, tools);
+    console.log(values, tools);
     const list = tools.props.userList;
     const setList = tools.props.setUserList;
     axios
       .post(
-        "https://bw-hackernews.herokuapp.com/docs/#/Auth/post_register",
+        "https://bw-hackernews.herokuapp.com/register",
         values
       )
       .then(response => {
         console.log(response);
-        
         let info = response.data;
         console.log(info);
         setList([...list, response.data]);
