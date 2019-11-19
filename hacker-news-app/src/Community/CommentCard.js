@@ -4,6 +4,7 @@ import { FaHeart, FaRegThumbsDown, FaRegThumbsUp } from 'react-icons/fa';
 
 
 const Container = styled.div`
+    width: 95%;
     max-width: 900px;
     height: 110px;
     margin: 0px auto;
@@ -11,7 +12,7 @@ const Container = styled.div`
     color: black;
     border: 1px solid #5C94BD;
     text-align:left;
-    overflow: hidden;
+    overflow: scroll;
 `;
 
 const InfoContainer = styled.div`

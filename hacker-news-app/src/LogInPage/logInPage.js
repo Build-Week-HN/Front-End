@@ -113,16 +113,17 @@ const LogInForm = withFormik({
         remember_password: Yup.boolean()
     }),
 
-    // handleSubmit(userData, formikbag){
-    //     axios.post("...", userData)
-    //         .then(response => {
-    //             formikbag.resetForm();
-    //             formikbag.props.setUsers([...formikbag.props.setUsers, response.data])
-    //         })
-    //         .catch(error => {
-    //             formikbag.props.setError(error.message)
-    //         });
-    // }
+    handleSubmit(userData, formikbag){
+        axios.post("https://bw-hackernewsclone.herokuapp.com/api/auth/login", userData)
+            .then(response => {
+                formikbag.resetForm();
+                formikbag.props.setUsers([...formikbag.props.setUsers, response.data])
+            })
+            .catch(error => {
+                formikbag.props.setError(error.message)
+                alert(`You have entered an invalid username and/or password`)
+            });
+    }
 
 })(LogIn);
 

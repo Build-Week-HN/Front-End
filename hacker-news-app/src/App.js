@@ -20,7 +20,7 @@ function App() {
       <Route
         exact path="/login"
         render={props => {
-          return <LogInForm {...props}/>;
+          return <LogInForm {...props} setError={setError}/>;
       }}/>
        <Route
         path="/community"
