@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Route, Link } from 'react-router-dom';
 
 const TopNav = styled.nav`
   height: 100%;
@@ -52,9 +53,11 @@ function Sidedrawer(props) {
         <ItemList>
           <Anchor href="/">Teams</Anchor>
         </ItemList>
+        <Link to="/register">
         <ItemList>
           <Anchor href="/">Register</Anchor>
         </ItemList>
+        </Link>
         <ItemList>
           <Anchor href="/">Login</Anchor>
         </ItemList>

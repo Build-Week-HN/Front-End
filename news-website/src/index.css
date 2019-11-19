@@ -51,20 +51,45 @@ code {
   /* margin-bottom: 5px; */
   margin-top: 5px;
   font-size: 18px;
+  
 }
-.point{
+
+p{
+  color: white;
+  font-family: roboto;
+}
+
+.picture{
+  border: 5px solid white;
+  width: 350px;
+  height: 370px;
+  align-content: center;
+  border-radius: 15px;
+  margin-left: 130px;
+
+}
+
+#space{
+  margin-top: 30px;
+}
+#point{
   background-color: gray;
-  height: 60px;
+  height: 50px;
   width: 120px;
   color: whitesmoke;
   border-radius: 10px;
   outline: none;
+  font-family: roboto;
+  font-size: 20px;
+  
 }
 .signup form input,
 .signup form select {
   margin-bottom: 25px;
   height: 25px;
   text-align: center;
+  background-color:#010038 ;
+  color: gray;
 }
 
 .heading{
@@ -76,6 +101,7 @@ code {
   color: red;
   font-size: 12px;
   font-weight: 600;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .signup {
