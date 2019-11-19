@@ -66,9 +66,9 @@ function CommentCard(props){
                     <Title>{props.curr.title}</Title>
                     <Author>{props.curr.author}</Author>
                     <Reaction>
-                        <span name="heart" onClick={() => setHeartCount(heartCount + 1)}><FaHeart className="commentIcon"/>{heartCount}</span>
-                        <span name="up" onClick={() => setUpCount(upCount + 1)}><FaRegThumbsUp className="commentIcon"/>{upCount}</span>
-                        <span name="down" onClick={() => setDownCount(downCount + 1)}><FaRegThumbsDown className="commentIcon"/>{downCount}</span>
+                        <span onClick={() => setHeartCount(heartCount + 1)}><FaHeart className="commentIcon"/>{heartCount}</span>
+                        <span onClick={() => setUpCount(upCount + 1)}><FaRegThumbsUp className="commentIcon"/>{upCount}</span>
+                        <span onClick={() => setDownCount(downCount + 1)}><FaRegThumbsDown className="commentIcon"/>{downCount}</span>
                     </Reaction><br />
                 </InfoContainer>
                 <Date>{props.curr.date}</Date>

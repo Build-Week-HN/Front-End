@@ -13,7 +13,7 @@ function App() {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
   const [hnData, sethnData] = useState([]);
-  const [drawer,setDrawer] = React.useState(false)
+  const [drawer,setDrawer] = useState(false)
   const toggleButton = ()=>{setDrawer(!drawer)}
 
   useEffect(() => {
