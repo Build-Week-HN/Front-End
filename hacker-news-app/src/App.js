@@ -28,43 +28,49 @@ function App() {
 
   return (
     <div>
-      <div style={{height:'100%'}}>
-        <Register/>
-        <Toolbar toggleButton={toggleButton}/>
-          {drawer? <Backdrop toggleButton={toggleButton}/>: null}
-          {drawer? <Sidedrawer toggleButton ={toggleButton}/> : null}
-        <main style={{marginTop: '160px'}}>
-        <p>This is the page content</p>
-        </main>
-      </div>
-      <div className="currentNews">
-        {
-          hnData.map((curr, index) => {
-            return(
-                <div key={index}>
-                    <h1>{curr.title}</h1>
-                    </div>
-            );
-        })
-        }
-      </div>
-      <div className="App">
-          <Link 
-            to="/login">Login here!</Link>
-            <br />
-          <Link 
-          to="/community">Community Post</Link>
-          <Route
-            exact path="/login"
-            render={props => {
-              return <LogInForm {...props} setError={setError}/>;
-          }}/>
-          <Route
-            path="/community"
-            render={props => {
-              return <CommunityPage {...props}/>;
-          }}/>
-    </div>
+      <Route 
+        path="/"
+        render={(props) => {
+          return (
+          <div style={{height:'100%'}}>
+            <Register/>
+            <Toolbar toggleButton={toggleButton}/>
+              {drawer? <Backdrop toggleButton={toggleButton}/>: null}
+              {drawer? <Sidedrawer toggleButton ={toggleButton}/> : null}
+            <main style={{marginTop: '160px'}}>
+          
+          
+            <p>This is the page content</p>
+            </main>
+          </div>
+          );
+        }}/>
+      <Route 
+        exact path="/"
+        render={() => {
+          return(
+            <div className="currentNews">
+              {
+                hnData.map((curr, index) => {
+                  return(
+                      <div key={index}>
+                          <h1>{curr.title}</h1>
+                          </div>
+                  );
+              })
+              }
+              </div>
+          )}}/>
+      <Route
+        exact path="/login"
+        render={props => {
+          return <LogInForm {...props} setError={setError}/>;
+      }}/>
+      <Route
+        exact path="/community"
+        render={props => {
+          return <CommunityPage {...props}/>;
+      }}/>
   </div>
   );
 }

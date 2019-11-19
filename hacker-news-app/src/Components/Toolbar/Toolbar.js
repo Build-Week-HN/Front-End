@@ -70,7 +70,7 @@ function Toolbar(props) {
               <Items href="/">Jobs</Items>
             </List>
             <List>
-              <Items href="/">Community</Items>
+              <Items href="/community">Community</Items>
             </List>
             <List>
               <Items href="/">Teams</Items>

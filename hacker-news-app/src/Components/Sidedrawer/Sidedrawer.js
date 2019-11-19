@@ -47,16 +47,16 @@ function Sidedrawer(props) {
           <Anchor href="/">Jobs</Anchor>
         </ItemList>
         <ItemList>
-          <Anchor href="/">Community</Anchor>
+          <Anchor href="/community">Community</Anchor>
         </ItemList>
         <ItemList>
           <Anchor href="/">Teams</Anchor>
         </ItemList>
         <ItemList>
-          <Anchor href="/">Register</Anchor>
+          <Anchor href="/register">Register</Anchor>
         </ItemList>
         <ItemList>
-          <Anchor href="/">Login</Anchor>
+          <Anchor href="/login">Login</Anchor>
         </ItemList>
       </UnorderedList>
     </TopNav>
