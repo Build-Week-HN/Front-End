@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Link } from 'react-router-dom';
-import './App.css';
 import axios from 'axios';
 import LogInForm from './Components/LogInPage/logInPage';
 import CommunityPage from './Components/Community/communityPage.js';
