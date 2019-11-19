@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Link } from 'react-router-dom';
-import './App.css';
 import axios from 'axios';
 import LogInForm from './Components/LogInPage/logInPage';
 import CommunityPage from './Components/Community/communityPage.js';
@@ -13,7 +12,7 @@ function App() {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
   const [hnData, sethnData] = useState([]);
-  const [drawer,setDrawer] = React.useState(false)
+  const [drawer,setDrawer] = useState(false)
   const toggleButton = ()=>{setDrawer(!drawer)}
 
   useEffect(() => {

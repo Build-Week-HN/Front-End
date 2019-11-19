@@ -20,6 +20,11 @@ const SubHeading = styled.div`
     text-decoration: none;
 `;
 
+const CommunityLinks = styled(NavLink)`
+    color: white;
+    text-decoration: none;
+`;
+
 const CommentsContainer = styled.div`
 `;
 
@@ -38,12 +43,12 @@ function CommunityPage(props){
         return(
             <Container>
                 <SubHeading>
-                    <NavLink 
+                    <CommunityLinks
                         to="/community/filter"
-                        className="communityLinks">Filter</NavLink>
-                    <NavLink 
+                        >Filter</CommunityLinks>
+                    <CommunityLinks
                         to="/community/add-comment"
-                        className="communityLinks">Add Comment</NavLink>
+                        className="communityLinks">Add Comment</CommunityLinks>
                 </SubHeading>
                 <Route  
                     path="/community/filter"

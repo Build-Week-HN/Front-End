@@ -51,8 +51,42 @@ const Button = styled.button`
 }
 `;
 
-const P = styled.p`
-    margin: 0px auto;
+const SubmitButton = styled.input`
+    color: white;
+    font-size: 0.8rem;
+    background-color: #470938;
+    padding: 8px;
+    margin: 10px auto;
+    font-weight: bold;
+    border-radius: 5px;
+
+    &:hover{
+    color: #470938;
+    background-color: white;
+    border: 1px solid #470938;
+    }
+`;
+
+const Error = styled.div`
+    color: red;
+    font-size: 0.8rem;
+    font-style: italic;
+    position: relative;
+    bottom: 15px;
+`;
+
+const DataFields = styled(Field)`
+    width: 75%;
+    max-width: 300px;
+    border: none;
+    border-bottom: 2px solid #F2D6EB;
+    margin: 20px auto;
+    padding: 5px;
+    font-size: 1rem;
+`;
+
+const PasswordField = styled(Field)`
+    margin: 10px;
 `;
 
 
@@ -63,32 +97,32 @@ function LogIn(props) {
         <Container>
             <H1>Login</H1>
             <Form>
-            <Field
+            <DataFields
                 className="username"
                 type="input"
                 name="username"
                 placeholder="Username"/>
             <ErrorMessage 
             name="username" 
-            render={err => <div className="errorMessage">{err}</div>}/>
-            <Field 
+            render={err => <Error>{err}</Error>}/>
+            <DataFields
                 className="password"
                 type="passord"
                 name="password"
                 placeholder="Password"/>
             <ErrorMessage 
             name="password" 
-            render={err => <div className="errorMessage">{err}</div>}/>
+            render={err => <Error>{err}</Error>}/>
             <br />
             <label>
                 Remember password?
-                <Field 
+                <PasswordField
                     className="remember_password"
                     type="checkbox" 
                     name="remember_password"/>
             </label>
             <br />
-            <input
+            <SubmitButton
                 className="btn" 
                 type="submit" />
             </Form>
@@ -116,7 +150,7 @@ const LogInForm = withFormik({
     }),
 
     handleSubmit(userData, formikbag){
-        axios.post("https://bw-hackernewsclone.herokuapp.com/api/auth/login", userData)
+        axios.post("bw-hackernews.herokuapp.com/login", userData)
             .then(response => {
                 formikbag.resetForm();
                 formikbag.props.setUsers([...formikbag.props.setUsers, response.data])
