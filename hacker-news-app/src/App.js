@@ -7,7 +7,7 @@ import CommunityPage from './Components/Community/communityPage.js';
 import Toolbar from './Components/Toolbar/Toolbar';
 import Sidedrawer from './Components/Sidedrawer/Sidedrawer';
 import Backdrop from './Components/Backdrop/Backdrop';
-import Register from '../src/Components/Forms/Register';
+import Register from './Components/Forms/Register';
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -32,16 +32,10 @@ function App() {
         path="/"
         render={(props) => {
           return (
-          <div style={{height:'100%'}}>
-            <Register/>
+          <div style={{height:'100%', minHeight: '50px'}}>
             <Toolbar toggleButton={toggleButton}/>
               {drawer? <Backdrop toggleButton={toggleButton}/>: null}
               {drawer? <Sidedrawer toggleButton ={toggleButton}/> : null}
-            <main style={{marginTop: '160px'}}>
-          
-          
-            <p>This is the page content</p>
-            </main>
           </div>
           );
         }}/>
@@ -61,6 +55,11 @@ function App() {
               }
               </div>
           )}}/>
+      <Route 
+        exact path="/register"
+        render={props => {
+        return <Register {...props} setError={setError} /> 
+      }}/>;
       <Route
         exact path="/login"
         render={props => {
