@@ -2,7 +2,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: #470938;
+  background-color: #5c94bd;
+  color: #1a3e59;
 }
 
 main {
@@ -10,7 +11,6 @@ main {
   min-height: 80vh;
   max-width: 1024px;
   margin: 30px auto;
-  background-color: #fff;
   padding: 15px;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }

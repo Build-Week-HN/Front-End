@@ -1,17 +1,29 @@
 import React from 'react'
-import { Divider, Header, Image, Segment } from 'semantic-ui-react'
+import styled from 'styled-components'
+
+const Header = styled.div`
+/* box-shadow: 5px black; */
+background-color: #effffa;
+text-transform: uppercase;
+padding: 5px;
+border-radius: 5px;
 
 
-const LatestNews = () => (
-  <Segment>
-    <Header as='h3'>Section One</Header>
-    <Image src='/images/wireframe/short-paragraph.png' />
+`
 
-    <Divider section />
+const LatestNews = (props) => (
+  <Header>
+    
+    <h1>{props.title}</h1>
+    <p>{props.text}</p>
+    <p>{props.author}</p>
+    <p>{props.comment_count}</p>
+      {/* <Image src = {props.url} />  */}
+  
+  </Header>
 
-    <Header as='h3'>Section Two</Header>
-    <Image src='/images/wireframe/short-paragraph.png' />
-  </Segment>
 )
+
+
 
 export default LatestNews;
