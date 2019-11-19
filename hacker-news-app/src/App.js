@@ -1,25 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Link } from 'react-router-dom';
 import './App.css';
-import LogInForm from './LogInPage/logInPage';
-import CommunityPage from './Community/CommunityPage';
-import Toolbar from './components/Toolbar/Toolbar'
-import Sidedrawer from './components/Sidedrawer/Sidedrawer'
-import Backdrop from './components/Backdrop/Backdrop'
-
-
+import axios from 'axios';
+import LogInForm from './Components/LogInPage/logInPage';
+import CommunityPage from './Components/Community/communityPage.js';
+import Toolbar from './Components/Toolbar/Toolbar';
+import Sidedrawer from './Components/Sidedrawer/Sidedrawer';
+import Backdrop from './Components/Backdrop/Backdrop';
+import Register from '../src/Components/Forms/Register';
 
 function App() {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
   const [hnData, sethnData] = useState([]);
+  const [drawer,setDrawer] = React.useState(false)
+  const toggleButton = ()=>{setDrawer(!drawer)}
 
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(
         "https://bw-hackernews.herokuapp.com/posts",
       );
-      // console.log(result)
       sethnData(result.data);
     }
     fetchData();
