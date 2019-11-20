@@ -65,7 +65,6 @@ function Dashboard(props){
                 </div>
                 <BookmarkContainer>
                     <h3>My Bookmarks</h3>
-                    <p>Map here through bookmarks</p>
                     <MyBookmarks {...props}/>
                 </BookmarkContainer>
             </SideBar>

@@ -157,7 +157,7 @@ const LogInForm = withFormik({
                 formikbag.resetForm();
                 localStorage.setItem("token", response.data.token)
                 formikbag.props.history.push(`dashboard/${userData.username}`)
-                formikbag.props.setUser(decode(response.data.token).name)
+                formikbag.props.setUser(decode(response.data.token).name);
             })
             .catch(error => {
                 debugger

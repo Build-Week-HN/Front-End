@@ -1,46 +1,68 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import styled from 'styled-components';
-import { gsap } from 'gsap';
+import React, { useState, useEffect } from "react";
+import axiosWithAuth from "../../utils/axiosWithAuth";
+import styled from "styled-components";
+import { gsap } from "gsap";
 
-    
-function MyBookmarks(props){
+function MyBookmarks(props) {
+  const [bookmarks, setBookmarks] = useState(null);
 
-    const [bookmarks, setBookmarks] = useState([])
+  useEffect(() => {
+    axiosWithAuth()
+      .get("/bookmarks")
+      .then(response => {
+        setBookmarks(response.data);
+        console.log(response);
+      })
+      .catch(error => {
+        debugger;
+        props.setError(error.message);
+      });
+  }, []);
 
-    axios.get('https://bw-hackernews.herokuapp.com/bookmarks')
-        .then(response => {
-            setBookmarks(response)
-            console.log(response)
-        })
-        .catch(error => {
-            props.setError(error.message)
-        })
+  if (!bookmarks || bookmarks.length === 0) {
+    return <div>You have no bookmarks</div>;
+  }
 
-        if(bookmarks.length === 0) {
-            return(
-                <div>
-                    <p>You have no bookmarks</p>
-                </div>
-            )
-        } else {
-            return(
-                    <div>
-                        {
-                            bookmarks.map((curr, index) => {
-                                return (
-                                    <div key={index}>
-                                        <a href={curr.url}>{curr.title}</a>
-                                        <p>{curr.author}</p>
-                                        <p>{curr.comment_count}</p>
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
-                
-            )
-        }
+  return (
+    bookmarks && (
+      <div>
+        {bookmarks.map((curr, index) => {
+          return (
+            <div key={index}>
+              <a href={curr.url}>{curr.title}</a>
+              <p>{curr.author}</p>
+              <p>{curr.comment_count}</p>
+            </div>
+          );
+        })}
+      </div>
+    )
+  );
+
+  // if(bookmarks.length === 0) {
+  //     return(
+  //         <div>
+  //             <p>You have no bookmarks</p>
+  //         </div>
+  //     )
+  // } else {
+  //     return(
+  //             <div>
+  //
+  //                     bookmarks.map((curr, index) => {
+  //                         return (
+  //                             <div key={index}>
+  //                                 <a href={curr.url}>{curr.title}</a>
+  //                                 <p>{curr.author}</p>
+  //                                 <p>{curr.comment_count}</p>
+  //                             </div>
+  //                         )
+  //                     })
+  //                 }
+  //             </div>
+
+  //     )
+  // }
 }
 
 export default MyBookmarks;

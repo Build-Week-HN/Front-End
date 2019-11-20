@@ -79,7 +79,8 @@ function App() {
               setError={setError} 
               setUser={setUser} 
               userRoute={userRoute}
-              setUserRoute={setUserRoute}/>;
+              setUserRoute={setUserRoute}
+              />;
       }}/>
         <Route
           exact path={`/Dashboard/${user}`}
@@ -88,7 +89,8 @@ function App() {
               user={user} 
               hnData={hnData} 
               comments={comments} 
-              setError={setError} />;
+              setError={setError}
+              />;
         }}/>
       <Route
         exact path="/community"
