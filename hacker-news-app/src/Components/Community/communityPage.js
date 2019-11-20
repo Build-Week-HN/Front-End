@@ -35,12 +35,6 @@ const CommentsContainer = styled.div`
 
 function CommunityPage(props){
 
-    const [comments, setComments] = useState([{
-        title:"Title Example",
-        author:"Emma",
-        date: "19/11/2019",
-        comment: "This is another comment"
-    }]);
     const [newComment, setNewComment] = useState({})
     const [serachResult, setSearchResult] = useState([])
 
@@ -50,11 +44,9 @@ function CommunityPage(props){
                 <SubHeading>
                     <CommunityLinks
                         to="/community/filter"
-                        activeClassName="selectedLink"
                         >Filter</CommunityLinks>
                     <CommunityLinks
                         to="/community/add-comment"
-                        activeClassName="selectedLink"
                         >Add Comment</CommunityLinks>
                 </SubHeading>
                 <Route  
@@ -63,8 +55,6 @@ function CommunityPage(props){
                         return (
                         <FilterForm 
                             {...props}
-                            comments={comments}
-                            setComments={setComments}
                             serachResult={serachResult}
                             setSearchResult={setSearchResult}/>)
                     }}/>
@@ -75,12 +65,11 @@ function CommunityPage(props){
                         <AddCommentForm {...props}
                         newComment={newComment}
                         setNewComment={setNewComment}
-                        setComments={setComments}
-                        comments={comments}/>)
+                        />)
                     }}/>
                 <CommentsContainer >
                 {
-                        comments.map((curr, index) => {
+                        props.comments.map((curr, index) => {
                             return (
                                 <div key={index}>
                                 <CommentCard 

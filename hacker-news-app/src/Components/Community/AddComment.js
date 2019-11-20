@@ -31,7 +31,6 @@ function AddComment(props){
                                 type="date"
                                 name="date"/>
                         </label>
-
                         <label> Title:
                             <Field 
                                 type="text"

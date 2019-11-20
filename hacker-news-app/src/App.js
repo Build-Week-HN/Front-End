@@ -18,6 +18,12 @@ function App() {
   const [user, setUser] = useState();
   const [userRoute, setUserRoute] = useState("/login");
   const [error, setError] = useState(null);
+  const [comments, setComments] = useState([{
+    title:"Title Example",
+    author:"Emma",
+    date: "19/11/2019",
+    comment: "This is another comment"
+  }]);
   const [hnData, sethnData] = useState([]);
   const [drawer,setDrawer] = useState(false)
   const toggleButton = ()=>{setDrawer(!drawer)}
@@ -78,12 +84,19 @@ function App() {
         <Route
           exact path={`/Dashboard/${user}`}
           render={props => {
-            return <Dashboard user={user}/>;
+            return <Dashboard 
+              user={user} 
+              hnData={hnData} 
+              comments={comments} 
+              setError={setError} />;
         }}/>
       <Route
         exact path="/community"
         render={props => {
-          return <CommunityPage {...props}/>;
+          return <CommunityPage {
+                ...props} 
+                comments={comments} 
+                setComments={setComments}/>;
       }}/>
   </Container>
   );

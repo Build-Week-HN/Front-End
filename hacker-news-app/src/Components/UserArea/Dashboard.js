@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { gsap } from 'gsap';
-import decode from 'jwt-decode';
+import { Link } from 'react-router-dom';
+import CommunityUpdates from './CommunityUpdates';
+import NewsUpdates from './NewsUpdates';
+import MyBookmarks from './MyBookmarks';
 
 
     const Container = styled.div`
@@ -11,7 +14,6 @@ import decode from 'jwt-decode';
         width: 100vw;
         display: flex;
         margin-top: 12px;
-        z-index: -1;
     `;
 
     const SideBar = styled.div`
@@ -44,16 +46,16 @@ import decode from 'jwt-decode';
         border: 1px solid black;
         height: calc(50% - 20px);
         margin: 10px 0px;
+        overflow: scroll;
     `;
 
     const CommunityContainer = styled.div`
          border: 1px solid black;
          height: calc(50% - 10px);
+         overflow: scroll;
     `;
     
 function Dashboard(props){
-
-
 
         return(
          <Container>
@@ -64,14 +66,17 @@ function Dashboard(props){
                 <BookmarkContainer>
                     <h3>My Bookmarks</h3>
                     <p>Map here through bookmarks</p>
+                    <MyBookmarks {...props}/>
                 </BookmarkContainer>
             </SideBar>
             <Activities>
                 <NewsContainer>
-                    Latest news activity (3 items and link to home page)
+                    <h3>Latest News Updates</h3> <Link to="/">More</Link>
+                   <NewsUpdates {...props}/>
                 </NewsContainer>
                 <CommunityContainer>
-                    Community activity (3 items and a link to community )
+                    <h3>What's happening in our community?</h3><Link to="/community">More</Link>
+                    <CommunityUpdates {...props}/>
                 </CommunityContainer>
             </Activities>
          </Container>

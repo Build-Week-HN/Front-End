@@ -1,10 +1,9 @@
 import React from 'react';
-import { Route, NavLink, withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import { withFormik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import styled from 'styled-components';
-import Dashboard from '../UserArea/Dashboard';
 import decode from 'jwt-decode';
 
 const Container = styled.div`
@@ -159,8 +158,6 @@ const LogInForm = withFormik({
                 localStorage.setItem("token", response.data.token)
                 formikbag.props.history.push(`dashboard/${userData.username}`)
                 formikbag.props.setUser(decode(response.data.token).name)
-                console.log(response);
-                console.log(formikbag);
             })
             .catch(error => {
                 debugger
