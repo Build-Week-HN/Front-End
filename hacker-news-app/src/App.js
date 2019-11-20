@@ -76,7 +76,7 @@ function App() {
               setUserRoute={setUserRoute}/>;
       }}/>
         <Route
-          exact path={`/Dashboard`}
+          exact path={`/Dashboard/${user}`}
           render={props => {
             return <Dashboard user={user}/>;
         }}/>

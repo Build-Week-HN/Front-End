@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { gsap } from 'gsap';
+import decode from 'jwt-decode';
 
 
     const Container = styled.div`
@@ -53,11 +54,12 @@ import { gsap } from 'gsap';
 function Dashboard(props){
 
 
+
         return(
          <Container>
             <SideBar>
                 <div>
-                    <H1>Welcome Back, User!</H1>
+                    <H1>Welcome Back, {props.user}!</H1>
                 </div>
                 <BookmarkContainer>
                     <h3>My Bookmarks</h3>
