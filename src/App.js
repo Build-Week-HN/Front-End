@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 import "./index.css";
@@ -14,7 +14,6 @@ import HeaderText from "./Components/LatestNews/LatestNews/styles/HeaderText";
 import Wrapper from "./Components/LatestNews/LatestNews/styles/Wrapper";
 import LatestNews from "./Components/LatestNews/LatestNews/LatestNews";
 import LandingPage from "./Components/LandingPage";
-import { ThemeProvider } from "styled-components";
 import Footer from "./Components/Footer/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Comment from "./assets/comment.png";
@@ -88,7 +87,7 @@ function App() {
               <HeaderText>Latest News:</HeaderText>
               {hnData.map((curr, index) => {
                 return (
-                  <ThemeProvider theme={theme}>
+                  <div key={index}>
                     <Wrapper>
                       <LatestNews
                         key={index}
@@ -101,7 +100,7 @@ function App() {
                         comment_count={curr.comment_count}
                       />
                     </Wrapper>
-                  </ThemeProvider>
+                  </div>
                 );
               })}
             </div>

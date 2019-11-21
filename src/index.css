@@ -19,7 +19,7 @@ html {
   height: 100%;
 }
 
->>>>>>>Babatunde-Adeniran body {
+body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -53,10 +53,10 @@ code {
   font-size: 18px;
 }
 
-p {
+/* p {
   color: white;
   font-family: roboto;
-}
+} */
 
 .picture {
   border: 5px solid white;
@@ -101,8 +101,12 @@ p {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-.signup {
+/* .signup {
   background-image: url(./components//Images//absolutvision-bSlHKWxxXak-unsplash.jpg);
+} */
+
+.currentNews {
+  margin-top: 100px;
 }
 
 .section1 {

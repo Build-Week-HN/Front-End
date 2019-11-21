@@ -51,10 +51,10 @@ function Sidedrawer(props) {
           <Anchor href="/">Latest News</Anchor>
         </ItemList>
         <ItemList>
-          <Anchor href="/">Users</Anchor>
+          <Anchor href="/login">Users</Anchor>
         </ItemList>
         <ItemList>
-          <Anchor href="/">Community</Anchor>
+          <Anchor href="/community">Community</Anchor>
         </ItemList>
         <ItemList>
           <Anchor href="/">Teams</Anchor>
