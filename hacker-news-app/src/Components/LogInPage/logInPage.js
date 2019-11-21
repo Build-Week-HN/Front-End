@@ -25,6 +25,7 @@ const H1 = styled.h1`
   background-color: #470938;
   color: white;
   border-radius: 2px;
+  z-index: -1;
 `;
 
 const RegistationContainer = styled.div`

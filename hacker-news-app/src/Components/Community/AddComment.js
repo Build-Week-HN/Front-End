@@ -5,7 +5,7 @@ import { withFormik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 const Container = styled.div`
-  padding: 10px 10px 0px;
+  padding: 10px 0px 0px;
   margin: 0px auto;
   color: white;
   background-color: #5c94bd;
@@ -14,9 +14,9 @@ const Container = styled.div`
 `;
 
 const CommentCard = styled.div`
-  width: 80%;
+  width: 90%;
   max-width: 600px;
-  margin: 10px auto;
+  margin: 20px auto 10px;
   text-align: center;
 `;
 
@@ -31,6 +31,9 @@ const Button = styled(Link)`
 
 const Info = styled.div`
   margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 `;
 
 const Label = styled.label`
@@ -67,18 +70,24 @@ function AddComment(props) {
         <Button to="/community">{`\u02DF`}</Button>
         <Form>
           <Info>
-            <Label name="date"> Date:</Label>
-            <Field type="date" name="date" />
-            <Label name="title">Title:</Label>
-            <Field type="text" name="title" />
-            <Label nam="author">Author:</Label>
-            <Field type="text" name="author" />
+            <div>
+              <Label name="date"> Date:</Label>
+              <Field type="date" name="date" />
+            </div>
+            <div>
+              <Label name="title">Title:</Label>
+              <Field type="text" name="title" />
+            </div>
+            <div>
+              <Label nam="author">Author:</Label>
+              <Field type="text" name="author" />
+            </div>
           </Info>
           <Field
             as="textarea"
             name="comment"
             rows="5"
-            cols="100"
+            cols="70"
             placeholder="Type your comment here..."
           />
           <InfoError>
