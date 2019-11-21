@@ -68,7 +68,6 @@ function NewsUpdates(props) {
                   return (
                     <div className="comment" key={index}>
                       <span>{curr.author}</span>
-                      {/* <p>{curr.text}</p> */}
                       <div dangerouslySetInnerHTML={createHTML(curr.text)} />
                     </div>
                   );

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Route, NavLink } from "react-router-dom";
 import CommentCard from "./CommentCard";
-import FilterForm from "./Filter";
 import AddCommentForm from "./AddComment";
 import axios from "axios";
 
@@ -35,38 +34,20 @@ const CommentsContainer = styled.div`
 
 function CommunityPage(props) {
   const [newComment, setNewComment] = useState({});
-  const [serachResult, setSearchResult] = useState([]);
 
+  console.log("This is community props", props);
   return (
     <Container>
       <SubHeading>
-        <CommunityLinks exact to="/community/filter">
-          Filter
-        </CommunityLinks>
         <CommunityLinks to="/community/add-comment">Add Comment</CommunityLinks>
       </SubHeading>
       <Route
         exact
-        path="/community/filter"
-        render={props => {
-          return (
-            <FilterForm
-              {...props}
-              comments={props.comments}
-              setComments={props.setComments}
-              serachResult={serachResult}
-              setSearchResult={setSearchResult}
-            />
-          );
-        }}
-      />
-      <Route
-        exact
         path="/community/add-comment"
-        render={props => {
+        render={states => {
           return (
             <AddCommentForm
-              {...props}
+              {...states}
               newComment={newComment}
               setNewComment={setNewComment}
               comments={props.comments}
@@ -80,7 +61,11 @@ function CommunityPage(props) {
         {props.comments.reverse().map((curr, index) => {
           return (
             <div key={index}>
-              <CommentCard curr={curr} index={index} />
+              <CommentCard
+                curr={curr}
+                index={index}
+                comments={props.comments}
+              />
             </div>
           );
         })}

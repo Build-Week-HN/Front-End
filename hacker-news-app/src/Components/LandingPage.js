@@ -1,4 +1,5 @@
 import React from "react";
+
 function LandingPage() {
   return (
     <section>
@@ -14,24 +15,24 @@ function LandingPage() {
             trends in the I.T world.
           </p>
           <div className="brand">
-            {/* <img
+            <img
               className="google"
               src="/Pictures/google-play-png-logo-3799.png"
               alt=""
-            /> */}
-            {/* <img
+            />
+            <img
               className="google2"
               src="/Pictures/5a902db97f96951c82922874.png"
               alt=""
-            /> */}
+            />
           </div>
         </div>
         <div className="image">
-          {/* <img
+          <img
             src="/Pictures/marvin-meyer-SYTO3xs06fU-unsplash.jpg"
             className="pics"
             alt=""
-          /> */}
+          />
         </div>
       </section>
       <section className="section2">
@@ -54,11 +55,11 @@ function LandingPage() {
       <section className="section5">
         <div className="narration2"></div>
         <div>
-          {/* <img
+          <img
             className="picture"
             src="/Pictures/ales-nesetril-Im7lZjxeLhg-unsplash.jpg"
             alt=""
-          /> */}
+          />
         </div>
       </section>
     </section>
