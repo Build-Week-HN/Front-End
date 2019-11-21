@@ -128,25 +128,16 @@ p{
 }
 .pics {
   height: 32em;
-  width: 30em;
+  width: 44em;
   border-radius: 35px;
+  margin-left: -120px;
 }
 
 .google {
   width: 12em;
+  margin-right: 8px;
+  margin-top: 50px;
 }
-.google2{
-  width: 12em;
-  margin-top: 50px; 
-  height: 80px;
-  
-}
-
-.brand{
-  display:flex ;
-  justify-content: space-between;
-}
-
 
 .lead {
   font-weight: bold;
@@ -199,4 +190,5 @@ p{
   display: flex;
   margin-left: 125px;
   border-radius: 30px;
+  height: 30em;
 }

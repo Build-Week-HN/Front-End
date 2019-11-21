@@ -17,12 +17,12 @@ function LandingPage() {
           <div className="brand">
             <img
               className="google"
-              src="/Pictures/google-play-png-logo-3799.png"
+              src="/Pictures/aivalable-on-the-app-store-2.svg"
               alt=""
             />
             <img
-              className="google2"
-              src="/Pictures/5a902db97f96951c82922874.png"
+              className="google"
+              src="/Pictures/google-play-badge.svg"
               alt=""
             />
           </div>
