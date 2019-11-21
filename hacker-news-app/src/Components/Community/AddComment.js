@@ -123,7 +123,7 @@ const AddCommentForm = withFormik({
         formikbag.resetForm();
       })
       .catch(error => {
-        formikbag.props.setError(error.message);
+        formikbag.setErrors(error.message);
       });
   }
 })(AddComment);

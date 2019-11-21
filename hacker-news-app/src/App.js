@@ -41,6 +41,17 @@ function App() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    axios
+      .get("https://bw-hackernews.herokuapp.com/community")
+      .then(response => {
+        setComments(response.data);
+      })
+      .catch(error => {
+        console.log(error.message);
+      });
+  });
+
   return (
     <Container>
       <Route

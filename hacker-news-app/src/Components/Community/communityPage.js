@@ -37,17 +37,6 @@ function CommunityPage(props) {
   const [newComment, setNewComment] = useState({});
   const [serachResult, setSearchResult] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get("https://bw-hackernews.herokuapp.com/community")
-      .then(response => {
-        props.setComments(response.data);
-      })
-      .catch(error => {
-        console.log(error.message);
-      });
-  });
-
   return (
     <Container>
       <SubHeading>
@@ -62,6 +51,9 @@ function CommunityPage(props) {
         render={props => {
           return (
             <FilterForm
+              {...props}
+              comments={props.comments}
+              setComments={props.setComments}
               serachResult={serachResult}
               setSearchResult={setSearchResult}
             />
@@ -74,10 +66,12 @@ function CommunityPage(props) {
         render={props => {
           return (
             <AddCommentForm
+              {...props}
               newComment={newComment}
               setNewComment={setNewComment}
               comments={props.comments}
               setComments={props.setComments}
+              setError={props.setError}
             />
           );
         }}

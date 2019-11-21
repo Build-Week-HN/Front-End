@@ -48,6 +48,10 @@ function NewsUpdates(props) {
     e.currentTarget.classList.toggle("show");
   }
 
+  function createHTML(props) {
+    return { __html: props };
+  }
+
   return (
     <FeedContainer className="container">
       {props.hnData.map((curr, index) => {
@@ -64,7 +68,8 @@ function NewsUpdates(props) {
                   return (
                     <div className="comment" key={index}>
                       <span>{curr.author}</span>
-                      <p>{curr.text}</p>
+                      {/* <p>{curr.text}</p> */}
+                      <div dangerouslySetInnerHTML={createHTML(curr.text)} />
                     </div>
                   );
                 }
