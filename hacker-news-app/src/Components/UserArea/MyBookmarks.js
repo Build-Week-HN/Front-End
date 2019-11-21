@@ -11,7 +11,6 @@ function MyBookmarks(props) {
       .get("/bookmarks")
       .then(response => {
         setBookmarks(response.data);
-        console.log(response);
       })
       .catch(error => {
         debugger;

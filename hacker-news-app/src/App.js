@@ -96,7 +96,7 @@ function App() {
       />
       <Route
         exact
-        path={`/Dashboard`}
+        path={`/dashboard/${user}`}
         render={props => {
           return (
             <Dashboard
@@ -110,7 +110,6 @@ function App() {
         }}
       />
       <Route
-        exact
         path="/community"
         render={props => {
           return (

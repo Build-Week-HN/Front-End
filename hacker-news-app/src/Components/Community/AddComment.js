@@ -1,89 +1,122 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Route, NavLink } from 'react-router-dom';
-import { withFormik, Field, Form, ErrorMessage } from 'formik'; 
-import * as Yup from 'yup';
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { withFormik, Field, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
 const Container = styled.div`
-    padding: 10px 10px 5px;;
-    margin: 0px auto;
-    color: white;
-    background-color: #5C94BD;
-    display: flex;
-    justify-content: space-evenly;
-    line-height: 3;
+  padding: 10px 10px 0px;
+  margin: 0px auto;
+  color: white;
+  background-color: #5c94bd;
+  display: flex;
+  justify-content: space-evenly;
 `;
 
 const CommentCard = styled.div`
-    width: 80%;
-    max-width: 600px;
-    margin: 10px auto;
+  width: 80%;
+  max-width: 600px;
+  margin: 10px auto;
+  text-align: center;
 `;
 
-function AddComment(props){
+const Button = styled(Link)`
+  color: white;
+  font-size: 2rem;
+  text-decoration: none;
+  position: absolute;
+  right: 50px;
+  top: 46px;
+`;
 
-        return(
-            <Container>
-                <CommentCard>
-                    <Form>
-                        <label> Date:
-                            <Field 
-                                type="date"
-                                name="date"/>
-                        </label>
-                        <label> Title:
-                            <Field 
-                                type="text"
-                                name="title"/>
-                        </label>
-                        <ErrorMessage 
-                            name="title" 
-                            render={err => <div className="errorMessageComment">{err}</div>}/>
-                        <label> Author:
-                            <Field 
-                                type="text"
-                                name="author"/>
-                        </label> 
-                        <ErrorMessage 
-                            name="author" 
-                            render={err => <div className="errorMessageComment">{err}</div>}/>
-                <br />
-                        <Field as="textarea" name="comment" rows="5" cols="90" placeholder="Type your comment here..."/>
-                        <ErrorMessage 
-                            name="comment" 
-                            render={err => <div className="errorMessageComment">{err}</div>}/>
-                        <br /><input type="submit" />
-                    </Form>
-                </CommentCard>
-            </Container>
-        )
+const Info = styled.div`
+  margin-bottom: 15px;
+`;
+
+const Label = styled.label`
+  margin: 0px 10px;
+`;
+
+const Submit = styled.input`
+  color: #1a3e59;
+  border: 2px solid #1a3e59;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 4px 10px;
+  margin: 5px auto;
+
+  &:hover {
+    color: white;
+    background-color: #1a3e59;
+    transform: scale(1.1);
+  }
+`;
+
+const InfoError = styled.div``;
+
+const Error = styled.div`
+  color: white;
+  font-style: italic;
+  font-size: 1rem;
+`;
+
+function AddComment(props) {
+  return (
+    <Container>
+      <CommentCard>
+        <Button to="/community">{`\u02DF`}</Button>
+        <Form>
+          <Info>
+            <Label name="date"> Date:</Label>
+            <Field type="date" name="date" />
+            <Label name="title">Title:</Label>
+            <Field type="text" name="title" />
+            <Label nam="author">Author:</Label>
+            <Field type="text" name="author" />
+          </Info>
+          <Field
+            as="textarea"
+            name="comment"
+            rows="5"
+            cols="100"
+            placeholder="Type your comment here..."
+          />
+          <InfoError>
+            <ErrorMessage name="title" render={err => <Error>{err}</Error>} />
+            <ErrorMessage name="author" render={err => <Error>{err}</Error>} />
+            <ErrorMessage name="comment" render={err => <Error>{err}</Error>} />
+          </InfoError>
+          <br />
+          <Submit type="submit" />
+        </Form>
+      </CommentCard>
+    </Container>
+  );
 }
 
 const AddCommentForm = withFormik({
-    mapPropsToValues() {
-        return{
-            date: "",
-            title: "",
-            author: "",
-            comment: ""
-        };
-    },
+  mapPropsToValues() {
+    return {
+      date: "",
+      title: "",
+      author: "",
+      comment: ""
+    };
+  },
 
-    validationSchema: Yup.object().shape({
-        date: Yup.date(),
-        title: Yup.string().required("Please give your comment a title."),
-        author: Yup.string(),
-        comment: Yup.string().min(20, "Your comment must be at least 20 characters")
-    }),
+  validationSchema: Yup.object().shape({
+    date: Yup.date(),
+    title: Yup.string().required("Please give your comment a TITLE."),
+    author: Yup.string(),
+    comment: Yup.string().min(20, "Your comment must be at least 20 characters")
+  }),
 
-    handleSubmit(commentData, formikbag){
-        console.log(commentData);
-        console.log(formikbag);
-        formikbag.resetForm();
-        formikbag.props.setComments([...formikbag.props.comments, commentData]);
-    }
-
-
-})(AddComment)
+  handleSubmit(commentData, formikbag) {
+    console.log(commentData);
+    console.log(formikbag);
+    formikbag.resetForm();
+    // formikbag.props.setComments([...formikbag.props.comments, commentData]);
+  }
+})(AddComment);
 
 export default AddCommentForm;
