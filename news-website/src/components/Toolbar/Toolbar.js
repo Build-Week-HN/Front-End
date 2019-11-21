@@ -6,7 +6,7 @@ const Lead = styled.header`
   position: fixed;
   width: 100%;
   background: purple;
-  height: 70px;
+  height: 90px;
   top: 0px;
   left: 0px;
 `;
@@ -68,9 +68,9 @@ function Toolbar(props) {
         </Crest>
         <Space className="spacer" />
         <div className="toolbar_navigation-items">
-          <List>
+          {/* <List>
             <Items href="/">Home</Items>
-          </List>
+          </List> */}
           <List>
             <Items href="/">Latest News</Items>
             <List>
