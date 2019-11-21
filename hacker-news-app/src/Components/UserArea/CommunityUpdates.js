@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { gsap } from "gsap";
 
 const FeedContainer = styled.div`
-  margin-top: 80px;
+  margin-top: 30px;
 `;
 
 const Container = styled.div`

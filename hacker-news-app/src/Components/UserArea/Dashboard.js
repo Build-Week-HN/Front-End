@@ -7,7 +7,9 @@ import MyBookmarks from "./MyBookmarks";
 import { gsap } from "gsap";
 
 const Container = styled.div`
-  height: calc(100vh - 70px);
+  height: calc(100vh - 80px);
+  min-height: 600px;
+  overflow: scroll;
   position: relative;
   right: 8px;
   width: 100vw;
@@ -16,21 +18,15 @@ const Container = styled.div`
   margin: 12px auto 0px;
 `;
 
-const Header = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-`;
-
 const SideBar = styled.div`
   background-color: #f2d6eb;
   height: 100%;
   width: 40%;
   max-width: 400px;
   color: #1a3e59;
-  z-index: -1;
   display: flex;
   align-items: flex-end;
+  margin: auto 0px;
 `;
 
 const H1 = styled.h1`
@@ -40,7 +36,6 @@ const H1 = styled.h1`
   width: 35%;
   position: absolute;
   top: 100px;
-  z-index: 1;
 `;
 
 const BookmarkContainer = styled.div`
@@ -54,18 +49,6 @@ const Activities = styled.div`
   flex-direction: column;
   width: 59%;
   height: 100%;
-`;
-
-const Subheading = styled.div`
-  width: 97%;
-  height: 72px;
-  color: white;
-  border-right: 2px solid #5c94bd;
-  background-color: #5c94bd;
-  z-index: 1;
-  position: fixed;
-  display: flex;
-  align-items: baseline;
 `;
 
 const NewsContainer = styled.div`
@@ -83,6 +66,18 @@ const CommunityContainer = styled.div`
   overflow: scroll;
 `;
 
+const Subheading = styled.div`
+  height: 72px;
+  color: white;
+  border-right: 2px solid #5c94bd;
+  background-color: #5c94bd;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  position: sticky;
+  top: 0px;
+`;
+
 const H3 = styled.h3`
   margin: 20px 20px;
 `;
@@ -90,22 +85,18 @@ const H3 = styled.h3`
 const Linked = styled(Link)`
   text-decoration: none;
   color: white;
-  position: absolute;
-  right: 20px;
-  top: 20px;
+  margin-right: 20px;
 `;
 
 function Dashboard(props) {
-  gsap.from(".sidebar", { x: -900, duration: 5, delay: 2 });
-  gsap.from(".welcome", { y: -300, duration: 1 });
-  gsap.from(".activities", { x: 1000, duration: 7, delay: 4 });
+  // gsap.from(".sidebar", { x: -900, duration: 5, delay: 2 });
+  // gsap.from(".welcome", { y: -300, duration: 1 });
+  // gsap.from(".activities", { x: 1000, duration: 7, delay: 4 });
 
   return (
     <div>
       <Container>
-        <Header className="welcome">
-          <H1>Welcome Back, {props.user}!</H1>
-        </Header>
+        <H1>Welcome Back, {props.user}!</H1>
         <SideBar className="sidebar">
           <BookmarkContainer>
             <h3>My Bookmarks</h3>
