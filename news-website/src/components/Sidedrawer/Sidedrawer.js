@@ -38,14 +38,16 @@ function Sidedrawer(props) {
   return (
     <TopNav className="side-drawer" onClick={() => props.toggleButton()}>
       <UnorderedList>
+      <ItemList>
+        <Link to="/home">
+          <Anchor href="/">Home</Anchor>
+          </Link>
+        </ItemList>
         <ItemList>
           <Anchor href="/">Latest News</Anchor>
         </ItemList>
         <ItemList>
           <Anchor href="/">Users</Anchor>
-        </ItemList>
-        <ItemList>
-          <Anchor href="/">Jobs</Anchor>
         </ItemList>
         <ItemList>
           <Anchor href="/">Community</Anchor>
