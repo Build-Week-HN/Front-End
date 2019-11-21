@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const TopNav = styled.nav`
@@ -24,17 +23,14 @@ const Anchor = styled.a`
   text-decoration: none;
   color: #521751;
   font-size: 1.7rem;
+
   &:hover {
-    background: rgba(210, 255, 82, 1);
-    background: -moz-linear-gradient(
-      left,
-      rgba(210, 255, 82, 1) 0%,
-      rgba(145, 232, 66, 1) 61%,
-      rgba(145, 232, 66, 1) 100%
-    );
+    background: rgba(210,255,82,1);
+    background: -moz-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 61%, rgba(145,232,66,1) 100%);
     cursor: pointer;
   }
 `;
+
 const ItemList = styled.li`
   margin: 0.5rem 0;
 `;
@@ -42,11 +38,6 @@ function Sidedrawer(props) {
   return (
     <TopNav className="side-drawer" onClick={() => props.toggleButton()}>
       <UnorderedList>
-        <ItemList>
-          <Link to="/home">
-            <Anchor href="/">Home</Anchor>
-          </Link>
-        </ItemList>
         <ItemList>
           <Anchor href="/">Latest News</Anchor>
         </ItemList>
@@ -72,4 +63,5 @@ function Sidedrawer(props) {
     </TopNav>
   );
 }
+
 export default Sidedrawer;
