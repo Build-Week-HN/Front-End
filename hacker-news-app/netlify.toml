@@ -1,0 +1,10 @@
+[build]
+
+base = "hacker-news-app/"
+publish = "hacker-news-app/src/"
+base ="/App.js"
+
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
