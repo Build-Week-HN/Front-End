@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { gsap } from "gsap";
 
@@ -42,8 +42,6 @@ const Container = styled.div`
 `;
 
 function NewsUpdates(props) {
-  // gsap.fromTo(".container", { y: 250 }, { duration: 20, y: -200, delay: 8 });
-
   function handleClick(e) {
     e.currentTarget.classList.toggle("show");
   }
@@ -68,7 +66,6 @@ function NewsUpdates(props) {
                   return (
                     <div className="comment" key={index}>
                       <span>{curr.author}</span>
-                      {/* <p>{curr.text}</p> */}
                       <div dangerouslySetInnerHTML={createHTML(curr.text)} />
                     </div>
                   );

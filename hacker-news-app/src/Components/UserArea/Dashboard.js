@@ -1,79 +1,83 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import CommunityUpdates from "./CommunityUpdates";
 import NewsUpdates from "./NewsUpdates";
-import MyBookmarks from "./MyBookmarks";
 import { gsap } from "gsap";
 
 const Container = styled.div`
-  height: calc(100vh - 80px);
+  height: calc(100vh - 150px);
   min-height: 600px;
   overflow: scroll;
-  position: relative;
-  right: 8px;
   width: 100vw;
   max-width: 900px;
   display: flex;
-  margin: 12px auto 0px;
+  flex-direction: column;
+  margin: 70px auto 0px;
+  padding: 10px;
 `;
 
-const SideBar = styled.div`
-  background-color: #f2d6eb;
-  height: 100%;
-  width: 40%;
-  max-width: 400px;
-  color: #1a3e59;
-  display: flex;
-  align-items: flex-end;
+const TopBar = styled.div`
+  height: 50px;
+  width: 100%;
+  text-align: center;
   margin: auto 0px;
+  position: relative;
+  bottom: 50px;
 `;
 
 const H1 = styled.h1`
   color: #1a3e59;
-  padding: 60px 20px;
-  font-size: 3rem;
-  width: 35%;
-  position: absolute;
-  top: 100px;
-`;
-
-const BookmarkContainer = styled.div`
-  width: 100%;
-  text-align: center;
-  height: calc(50% - 20px);
 `;
 
 const Activities = styled.div`
   display: flex;
-  flex-direction: column;
-  width: 59%;
+  justify-content: space-between;
+  width: 100%;
   height: 100%;
+  margin: 0px auto;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
 `;
 
 const NewsContainer = styled.div`
-  height: calc(50% - 20px);
-  border: 3px solid #5c94bd;
-  margin: 20px 0px 10px 10px;
+  height: 100%;
+  width: calc(50% - 20px);
+  border: 5px solid #5c94bd;
   overflow: scroll;
+  margin: 0px auto 20px;
+  border-top: 5px solid #5c94bd;
+
+  @media (max-width: 900px) {
+    width: 90%;
+    height: 500px;
+  }
 `;
 
 const CommunityContainer = styled.div`
-  border: 3px solid #5c94bd;
+  border: 5px solid #5c94bd;
   border-top: 5px solid #5c94bd;
-  height: calc(50% - 20px);
-  margin: 0px 0px 10px 10px;
+  height: 100%;
+  width: calc(50% - 20px);
   overflow: scroll;
+  margin: 0px auto;
+
+  @media (max-width: 900px) {
+    width: 90%;
+    height: 500px;
+  }
 `;
 
 const Subheading = styled.div`
   height: 72px;
   color: white;
-  border-right: 2px solid #5c94bd;
+  border: 8px solid #5c94bd;
   background-color: #5c94bd;
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
+  justify-content: space-evenly;
   position: sticky;
   top: 0px;
 `;
@@ -89,29 +93,32 @@ const Linked = styled(Link)`
 `;
 
 function Dashboard(props) {
-  // gsap.from(".sidebar", { x: -900, duration: 5, delay: 2 });
-  // gsap.from(".welcome", { y: -300, duration: 1 });
-  // gsap.from(".activities", { x: 1000, duration: 7, delay: 4 });
+  useEffect(() => {
+    gsap.fromTo(".sidebar", { y: 40 }, { y: 100, duration: 2 });
+    gsap.fromTo(
+      ".sidebar",
+      { y: 100 },
+      { y: 180, opacity: 0, duration: 4, delay: 4 }
+    );
+    gsap.fromTo(".news", { x: -600 }, { x: 0, duration: 4, delay: 6 });
+    gsap.fromTo(".community", { x: 600 }, { x: 0, duration: 4, delay: 6 });
+  }, []);
 
   return (
     <div>
       <Container>
-        <H1>Welcome Back, {props.user}!</H1>
-        <SideBar className="sidebar">
-          <BookmarkContainer>
-            <h3>My Bookmarks</h3>
-            <MyBookmarks {...props} />
-          </BookmarkContainer>
-        </SideBar>
+        <TopBar className="sidebar">
+          <H1 className="welcome">Welcome Back, {props.user}!</H1>
+        </TopBar>
         <Activities className="activities">
-          <NewsContainer>
+          <NewsContainer className="news">
             <Subheading>
               <H3>Latest News Updates</H3>
               <Linked to="/">More</Linked>
             </Subheading>
             <NewsUpdates {...props} />
           </NewsContainer>
-          <CommunityContainer>
+          <CommunityContainer className="community">
             <Subheading>
               <H3>What's happening in our community?</H3>
               <Linked to="/community">More</Linked>

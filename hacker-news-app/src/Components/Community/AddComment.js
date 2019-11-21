@@ -65,6 +65,8 @@ const Error = styled.div`
 `;
 
 function AddComment(props) {
+  console.log(props);
+
   return (
     <Container>
       <CommentCard>

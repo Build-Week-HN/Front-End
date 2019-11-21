@@ -50,12 +50,12 @@ function App() {
     axios
       .get("https://bw-hackernews.herokuapp.com/community")
       .then(response => {
-        setComments(response.data);
+        setComments(response.data.reverse());
       })
       .catch(error => {
         console.log(error.message);
       });
-  });
+  }, []);
 
   return (
     <Container>
@@ -68,9 +68,6 @@ function App() {
               <Route exact path="/home" component={LandingPage}></Route>
               {drawer ? <Backdrop toggleButton={toggleButton} /> : null}
               {drawer ? <Sidedrawer toggleButton={toggleButton} /> : null}
-              <main style={{ marginTop: "160px" }}>
-                <Route exact path="/register" component={Register} />
-              </main>
             </div>
           );
         }}
