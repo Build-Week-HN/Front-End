@@ -63,5 +63,4 @@ const Registration = withFormik({
       });
   }
 })(Register);
-
 export default Registration;

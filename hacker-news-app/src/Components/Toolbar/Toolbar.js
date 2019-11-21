@@ -6,25 +6,23 @@ import hnclone from "../../assets/hnclone.png";
 const Lead = styled.header`
   position: fixed;
   width: 100%;
-  background: #470938;
-  height: 70px;
+  background: purple;
+  height: 90px;
   top: 0px;
   left: 0px;
 `;
 
-// const Image = styled.img`
-// background: url("${hnclone}");
-// display: flex;
-// flex-wrap: wrap;
-// top: 60px;
-// font-size: 1rem;`
+const Logo = styled.a`
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+`;
 
 const Navigation = styled.nav`
   display: flex;
   align-items: center;
   padding: 0 1rem;
   flex-direction: row;
-  margin-top: 0.5rem;
 `;
 
 const Items = styled.a`
@@ -34,15 +32,8 @@ const Items = styled.a`
   margin: 12px;
   font-size: 20px;
   &:hover {
-    background: rgba(210, 255, 82, 1);
-    background: -moz-linear-gradient(
-      left,
-      rgba(210, 255, 82, 1) 0%,
-      rgba(145, 232, 66, 1) 61%,
-      rgba(145, 232, 66, 1) 100%
-    );
+    color: orange;
     cursor: pointer;
-    color: #470938;
   }
 `;
 
@@ -56,6 +47,10 @@ const List = styled.ul`
   display: flex;
   margin: 0;
   padding: 0;
+`;
+
+const Crest = styled.div`
+  margin-left: 1rem;
 `;
 
 const Space = styled.div`
@@ -79,14 +74,15 @@ function Toolbar(props) {
         <Space className="spacer" />
         <Avatar className="avatar" src={hnclone} alt="logo" />
         <div className="toolbar_navigation-items">
+          {/* <List>
+            <Items href="/">Home</Items>
+          </List> */}
           <List>
             <Items href="/">Latest News</Items>
             <List>
               <Items href="/">Users</Items>
             </List>
-            <List>
-              <Items href="/">Jobs</Items>
-            </List>
+
             <List>
               <Items href="/community">Community</Items>
             </List>
