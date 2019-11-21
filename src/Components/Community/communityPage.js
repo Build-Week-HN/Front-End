@@ -6,7 +6,7 @@ import AddCommentForm from "./AddComment";
 
 const Container = styled.div`
   width: 80%;
-  margin: 0px auto;
+  margin: 90px auto 0px;
   position: relative;
   right: 8px;
 `;
@@ -20,11 +20,17 @@ const SubHeading = styled.div`
   text-decoration: none;
   color: white;
   text-decoration: none;
+  font-weight: bold;
 `;
 
 const CommunityLinks = styled(NavLink)`
   color: white;
   text-decoration: none;
+
+  &:hover {
+    color: white;
+    transform: scale(1.1);
+  }
 `;
 
 const CommentsContainer = styled.div`

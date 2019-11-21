@@ -28,6 +28,12 @@ const Button = styled(Link)`
   position: absolute;
   right: 50px;
   top: 46px;
+
+  &:hover {
+    color: white;
+    transform: scale(1.2);
+    text-decoration: none;
+  }
 `;
 
 const Info = styled.div`

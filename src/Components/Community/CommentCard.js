@@ -26,7 +26,7 @@ const InfoContainer = styled.div`
 const Title = styled.p`
   font-size: 1rem;
   font-weight: bold;
-  margin: 20px 0px 0px 40px;
+  margin: 20px 0px 8px 40px;
 `;
 
 const Author = styled.p`
@@ -38,7 +38,7 @@ const Author = styled.p`
 const Date = styled.p`
   font-size: 0.6rem;
   position: relative;
-  bottom: 10px;
+  bottom: 8px;
   margin-left: 60px;
 `;
 

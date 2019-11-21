@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import CommunityUpdates from "./CommunityUpdates";
@@ -100,8 +100,8 @@ function Dashboard(props) {
       { y: 100 },
       { y: 180, opacity: 0, duration: 4, delay: 4 }
     );
-    gsap.fromTo(".news", { x: -600 }, { x: 0, duration: 4, delay: 6 });
-    gsap.fromTo(".community", { x: 600 }, { x: 0, duration: 4, delay: 6 });
+    gsap.fromTo(".news", { x: -900 }, { x: 0, duration: 4, delay: 6 });
+    gsap.fromTo(".community", { x: 900 }, { x: 0, duration: 4, delay: 6 });
   }, []);
 
   return (

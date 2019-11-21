@@ -10,6 +10,7 @@ const Lead = styled.header`
   height: 90px;
   top: 0px;
   left: 0px;
+  z-index: 1;
 `;
 
 const Logo = styled.a`

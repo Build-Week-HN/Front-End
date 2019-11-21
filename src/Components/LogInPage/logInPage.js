@@ -125,7 +125,7 @@ function LogIn(props) {
           />
         </label>
         <br />
-        <SubmitButton className="btn" type="submit" />
+        <SubmitButton type="submit" />
       </Form>
       <RegistationContainer>
         <p>Not registered yet? Register Now</p>
