@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
+import "./index.css";
 import LogInForm from "./Components/LogInPage/logInPage";
 import CommunityPage from "./Components/Community/communityPage.js";
 import Toolbar from "./Components/Toolbar/Toolbar";
@@ -9,6 +10,10 @@ import Sidedrawer from "./Components/Sidedrawer/Sidedrawer";
 import Backdrop from "./Components/Backdrop/Backdrop";
 import Register from "./Components/Forms/Register";
 import Dashboard from "./Components/UserArea/Dashboard";
+import HeaderText from "./Components/LatestNews/LatestNews/styles/HeaderText";
+import Wrapper from "./Components/LatestNews/LatestNews/styles/Wrapper";
+import LatestNews from "./Components/LatestNews/LatestNews/LatestNews";
+import LandingPage from "./Components/LandingPage";
 
 const Container = styled.div`
   width: 100vw;
@@ -58,10 +63,14 @@ function App() {
         path="/"
         render={props => {
           return (
-            <div style={{ height: "100%", minHeight: "50px" }}>
+            <div style={{ height: "100%" }}>
               <Toolbar toggleButton={toggleButton} />
+              <Route exact path="/home" component={LandingPage}></Route>
               {drawer ? <Backdrop toggleButton={toggleButton} /> : null}
               {drawer ? <Sidedrawer toggleButton={toggleButton} /> : null}
+              <main style={{ marginTop: "160px" }}>
+                <Route exact path="/register" component={Register} />
+              </main>
             </div>
           );
         }}
@@ -72,11 +81,19 @@ function App() {
         render={() => {
           return (
             <div className="currentNews">
+              <HeaderText>Latest News:</HeaderText>
               {hnData.map((curr, index) => {
                 return (
-                  <div key={index}>
-                    <h1>{curr.title}</h1>
-                  </div>
+                  <Wrapper>
+                    <LatestNews
+                      key={index}
+                      text={curr.text}
+                      title={curr.title}
+                      author={curr.author}
+                      comment_count={curr.comment_count}
+                      url={curr.url}
+                    />
+                  </Wrapper>
                 );
               })}
             </div>
