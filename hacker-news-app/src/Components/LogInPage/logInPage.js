@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import styled from "styled-components";
 import decode from "jwt-decode";
+import Loader from 'react-loader-spinner'
 
 const Container = styled.div`
   width: 400px;
