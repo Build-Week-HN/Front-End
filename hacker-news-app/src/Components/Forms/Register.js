@@ -55,10 +55,7 @@ const Registration = withFormik({
     const list = tools.props.userList;
     const setList = tools.props.setUserList;
     axios
-      .post(
-        "https://bw-hackernews.herokuapp.com/register",
-        values
-      )
+      .post("https://bw-hackernews.herokuapp.com/register", values)
       .then(response => {
         console.log(response);
         let info = response.data;
