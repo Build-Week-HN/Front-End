@@ -13,6 +13,9 @@ const Container = styled.div`
     flex-direction: column;
     border-radius: 10px;
     text-align: center;
+    -webkit-box-shadow: 1px 9px 30px -4px rgba(0,0,0,0.67);
+    -moz-box-shadow: 1px 9px 30px -4px rgba(0,0,0,0.67);
+    box-shadow: 1px 9px 30px -4px rgba(0,0,0,0.67);
 `;
 
 const H1 = styled.h1`
@@ -33,11 +36,12 @@ const RegistationContainer = styled.div`
     margin: 20px auto 0px;
     font-size: 0.8rem;
     text-align: center;
+    
 `;
 
 const Button = styled.button`
     color: white;
-    background-color: #5C94BD;
+    background-color: #5c94bd;
     padding: 6px;
     margin: 0px auto 10px;
     font-weight: bold;

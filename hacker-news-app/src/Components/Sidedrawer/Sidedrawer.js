@@ -25,7 +25,8 @@ const Anchor = styled.a`
   font-size: 1.7rem;
 
   &:hover {
-    color: orange;
+    background: rgba(210,255,82,1);
+    background: -moz-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 61%, rgba(145,232,66,1) 100%);
     cursor: pointer;
   }
 `;

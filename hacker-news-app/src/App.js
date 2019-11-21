@@ -7,8 +7,23 @@ import Toolbar from './Components/Toolbar/Toolbar';
 import Sidedrawer from './Components/Sidedrawer/Sidedrawer';
 import Backdrop from './Components/Backdrop/Backdrop';
 import Register from './Components/Forms/Register';
+import { ThemeProvider } from "styled-components";
+import LatestNews from "./Components/LatestNews/LatestNews";
+import Wrapper from "./Components/LatestNews/styles/Wrapper";
+import HeaderText from "./Components/LatestNews/styles/HeaderText";
+import Footer from './Components/Footer/Footer';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import Comment from './assets/comment.png';
+import Avatar from './assets/avatar.png'
+import Hnclone from './assets/hnclone.png'
 
-function App() {
+
+const theme = {
+  font: "Calibri"
+};
+
+function App () {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
   const [hnData, sethnData] = useState([]);
@@ -21,10 +36,12 @@ function App() {
         "https://bw-hackernews.herokuapp.com/posts",
       );
       sethnData(result.data);
+      // console.log(result.data);
     }
     fetchData();
-}, []);
-
+  }, []);
+  
+  
   return (
     <div>
       <Route 
@@ -37,21 +54,43 @@ function App() {
               {drawer? <Sidedrawer toggleButton ={toggleButton}/> : null}
           </div>
           );
-        }}/>
+        }} />
+      
+     
+      
+
       <Route 
         exact path="/"
+        
         render={() => {
           return(
             <div className="currentNews">
+              <HeaderText>Latest News:</HeaderText>
               {
                 hnData.map((curr, index) => {
-                  return(
-                      <div key={index}>
-                          <h1>{curr.title}</h1>
-                          </div>
+                  return (
+                    <ThemeProvider theme={theme}>
+                      
+                      <Wrapper>
+                    
+                  <LatestNews
+                    key={index}
+                    text={curr.text}
+                    img src={Avatar} 
+                          
+                    title={curr.title}
+                    author={curr.author}
+                          
+                         
+                    url={curr.url}
+                    comment_count={curr.comment_count}
+                        />
+                    </Wrapper>
+                      </ThemeProvider>
                   );
               })
               }
+              
               </div>
           )}}/>
       <Route 
@@ -68,7 +107,15 @@ function App() {
         exact path="/community"
         render={props => {
           return <CommunityPage {...props}/>;
-      }}/>
+        }} />
+      
+      <Route 
+        path="/"
+        render={(props) => {
+          return (
+            <Footer />
+          );
+        }} />
   </div>
   );
 }

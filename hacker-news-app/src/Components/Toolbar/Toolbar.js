@@ -1,26 +1,35 @@
 import React from "react";
 import styled from "styled-components";
 import DrawerToggleButton from '../Sidedrawer/DrawerToggleButton'
+import hnclone from "../../assets/hnclone.png"
 
 const Lead = styled.header`
   position: fixed;
   width: 100%;
-  background: purple;
+  background: #470938;
   height: 70px;
   top: 0px;
   left: 0px;
 `;
 
-const Logo = styled.a`
-color: white;
-text-decoration: none;
-font-size: 1.5rem;`
+
+// const Image = styled.img`
+// background: url("${hnclone}");
+// display: flex;
+// flex-wrap: wrap;
+// top: 60px;
+
+// font-size: 1rem;`
+
+
 
 const Navigation = styled.nav`
 display: flex;
 align-items: center;
 padding: 0 1rem;
-flex-direction: row;`
+flex-direction: row;
+margin-top: 0.5rem;`
+
 
 const Items = styled.a`
 color: white;
@@ -29,8 +38,10 @@ color: white;
  margin: 12px;
  font-size: 20px;
  &:hover {
-    color: orange;
-    cursor: pointer;}`
+  background: rgba(210,255,82,1);
+  background: -moz-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 61%, rgba(145,232,66,1) 100%);
+  cursor: pointer;
+  color: #470938;}`
 
  const Division = styled.div`
  display: flex;
@@ -43,12 +54,18 @@ color: white;
  margin: 0;
  padding: 0;`
 
- const Crest = styled.div`
- margin-left: 1rem;`
-
  const Space = styled.div`
  flex: 1;`
 
+const Avatar = styled.img`
+  position: fixed;
+  margin: 2px 3px 0 2vw;
+  height: 100px;
+  width: auto;
+  display: flex;
+  
+
+`
 function Toolbar(props) {
   return (
     <Lead className="toolbar">
@@ -56,10 +73,9 @@ function Toolbar(props) {
         <div>
         <DrawerToggleButton toggleButton={props.toggleButton}/>
         </div>
-        <Crest className="toolbar_logo">
-          <Logo href="#">THE LOGO</Logo>
-        </Crest>
-        <Space className="spacer"/>
+        <Space className="spacer" />
+        <Avatar className="avatar" src={hnclone}
+            alt="logo"/>
         <div className="toolbar_navigation-items">
           <List>
             <Items href="/">Latest News</Items>
