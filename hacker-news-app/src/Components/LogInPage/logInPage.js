@@ -9,7 +9,7 @@ import decode from "jwt-decode";
 const Container = styled.div`
   width: 400px;
   border: 4px solid #470938;
-  margin: 100px auto;
+  margin: 170px auto;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -51,6 +51,10 @@ const Button = styled(NavLink)`
     background-color: white;
     border: 1px solid #5c94bd;
   }
+
+  &:active {
+    opacity: 0.7;
+  }
 `;
 
 const SubmitButton = styled.input`
@@ -61,6 +65,7 @@ const SubmitButton = styled.input`
   margin: 10px auto;
   font-weight: bold;
   border-radius: 5px;
+  cursor: pointer;
 
   &:hover {
     color: #470938;

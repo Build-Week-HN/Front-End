@@ -39,8 +39,8 @@ const Info = styled.div`
 function CommunityUpdate(props) {
   return (
     <FeedContainer>
-      {props.comments.reverse().map((curr, index) => {
-        if (index < 5) {
+      {props.comments.map((curr, index) => {
+        if (index < 10) {
           return (
             <Container key={index}>
               <Info>
