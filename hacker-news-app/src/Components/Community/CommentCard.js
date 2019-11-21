@@ -93,7 +93,7 @@ function CommentCard(props) {
         </Icon>
       </Reaction>
       <br />
-      <Comment>{props.curr.comment}</Comment>
+      <Comment>{props.curr.text}</Comment>
     </Container>
   );
 }

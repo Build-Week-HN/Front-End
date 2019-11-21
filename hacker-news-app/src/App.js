@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 import LogInForm from "./Components/LogInPage/logInPage";
@@ -115,6 +115,7 @@ function App() {
           return (
             <CommunityPage
               {...props}
+              setError={setError}
               comments={comments}
               setComments={setComments}
             />
