@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -27,9 +27,11 @@ const Input = styled.input`
 `;
 
 function Filter(props) {
+  const comments = props.comments;
+
   const handleChangeDate = e => {
     const search = e.target.value;
-    const result = props.comments.filter(comment => {
+    const result = comments.filter(comment => {
       if (comment.date === e.target.value) {
         return comment;
       }
@@ -39,6 +41,7 @@ function Filter(props) {
   };
 
   const handleChangeAuthor = e => {
+    console.log(e);
     const search = e.target.value.toLowerCase();
     const result = props.comments.filter(comment => {
       return comment.author.toLowerCase().includes(search);

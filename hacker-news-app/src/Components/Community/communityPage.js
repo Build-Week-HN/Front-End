@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Route, NavLink } from "react-router-dom";
 import CommentCard from "./CommentCard";
 import FilterForm from "./Filter";
 import AddCommentForm from "./AddComment";
+import axios from "axios";
 
 const Container = styled.div`
   width: 80%;
@@ -50,6 +51,9 @@ function CommunityPage(props) {
         render={props => {
           return (
             <FilterForm
+              {...props}
+              comments={props.comments}
+              setComments={props.setComments}
               serachResult={serachResult}
               setSearchResult={setSearchResult}
             />
@@ -62,16 +66,18 @@ function CommunityPage(props) {
         render={props => {
           return (
             <AddCommentForm
+              {...props}
               newComment={newComment}
               setNewComment={setNewComment}
               comments={props.comments}
               setComments={props.setComments}
+              setError={props.setError}
             />
           );
         }}
       />
       <CommentsContainer>
-        {props.comments.map((curr, index) => {
+        {props.comments.reverse().map((curr, index) => {
           return (
             <div key={index}>
               <CommentCard curr={curr} index={index} />

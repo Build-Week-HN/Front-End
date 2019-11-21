@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 import LogInForm from "./Components/LogInPage/logInPage";
@@ -40,6 +40,17 @@ function App() {
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    axios
+      .get("https://bw-hackernews.herokuapp.com/community")
+      .then(response => {
+        setComments(response.data);
+      })
+      .catch(error => {
+        console.log(error.message);
+      });
+  });
 
   return (
     <Container>
@@ -115,6 +126,7 @@ function App() {
           return (
             <CommunityPage
               {...props}
+              setError={setError}
               comments={comments}
               setComments={setComments}
             />

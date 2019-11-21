@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { withFormik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
 
 const Container = styled.div`
   padding: 10px 0px 0px;
@@ -71,10 +72,6 @@ function AddComment(props) {
         <Form>
           <Info>
             <div>
-              <Label name="date"> Date:</Label>
-              <Field type="date" name="date" />
-            </div>
-            <div>
               <Label name="title">Title:</Label>
               <Field type="text" name="title" />
             </div>
@@ -85,7 +82,7 @@ function AddComment(props) {
           </Info>
           <Field
             as="textarea"
-            name="comment"
+            name="text"
             rows="5"
             cols="70"
             placeholder="Type your comment here..."
@@ -93,7 +90,7 @@ function AddComment(props) {
           <InfoError>
             <ErrorMessage name="title" render={err => <Error>{err}</Error>} />
             <ErrorMessage name="author" render={err => <Error>{err}</Error>} />
-            <ErrorMessage name="comment" render={err => <Error>{err}</Error>} />
+            <ErrorMessage name="text" render={err => <Error>{err}</Error>} />
           </InfoError>
           <br />
           <Submit type="submit" />
@@ -106,25 +103,28 @@ function AddComment(props) {
 const AddCommentForm = withFormik({
   mapPropsToValues() {
     return {
-      date: "",
       title: "",
       author: "",
-      comment: ""
+      text: ""
     };
   },
 
   validationSchema: Yup.object().shape({
-    date: Yup.date(),
     title: Yup.string().required("Please give your comment a TITLE."),
     author: Yup.string(),
-    comment: Yup.string().min(20, "Your comment must be at least 20 characters")
+    text: Yup.string().min(20, "Your comment must be at least 20 characters")
   }),
 
   handleSubmit(commentData, formikbag) {
-    console.log(commentData);
-    console.log(formikbag);
-    formikbag.resetForm();
-    // formikbag.props.setComments([...formikbag.props.comments, commentData]);
+    axios
+      .post("https://bw-hackernews.herokuapp.com/community", commentData)
+      .then(response => {
+        formikbag.props.setComments(commentData, [...formikbag.props.comments]);
+        formikbag.resetForm();
+      })
+      .catch(error => {
+        formikbag.setErrors(error.message);
+      });
   }
 })(AddComment);
 

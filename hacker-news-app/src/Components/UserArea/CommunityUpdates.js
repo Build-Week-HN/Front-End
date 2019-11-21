@@ -11,13 +11,14 @@ const Container = styled.div`
   padding-top: 10px;
   width: 90%;
   max-height: 100px;
-  overflow: hidden;
+  overflow: scroll;
   margin: 10px auto;
 `;
 
 const Comment = styled.p`
   width: 90%;
   margin: 0px auto;
+  font-size: 0.8rem;
 `;
 
 const Info = styled.div`
@@ -25,23 +26,29 @@ const Info = styled.div`
   text-align: right;
   font-size: 0.8rem;
   font-style: italic;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   display: flex;
   flex-direction: column;
+
+  .title {
+    font-weight: bold;
+    margin-right: 5px;
+  }
 `;
 
 function CommunityUpdate(props) {
   return (
     <FeedContainer>
-      {props.comments.map((curr, index) => {
+      {props.comments.reverse().map((curr, index) => {
         if (index < 5) {
           return (
             <Container key={index}>
-              <Comment>{curr.comment}</Comment>
               <Info>
+                <span className="title">{curr.title}</span>
                 <span>{curr.author}</span>
                 <span>{curr.date}</span>
               </Info>
+              <Comment>{curr.text}</Comment>
             </Container>
           );
         }

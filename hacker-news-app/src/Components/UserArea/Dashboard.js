@@ -31,7 +31,7 @@ const SideBar = styled.div`
 
 const H1 = styled.h1`
   color: #1a3e59;
-  padding: 80px 20px;
+  padding: 60px 20px;
   font-size: 3rem;
   width: 35%;
   position: absolute;

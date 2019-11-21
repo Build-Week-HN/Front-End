@@ -23,54 +23,34 @@ const InfoContainer = styled.div`
   width: 90%;
 `;
 
-const Reaction = styled.div`
-  display: flex;
-  flex-direction: column;
-  text-align: right;
-  line-height: 1.6;
-  width: 6%;
-  padding-right: 20px;
-  margin-top: 10px;
-`;
-
-const Icon = styled.span`
-  display: flex;
-  justify-content: space-evenly;
-  align-items: baseline;
-`;
-
 const Title = styled.p`
   font-size: 1rem;
   font-weight: bold;
-  margin: 20px 0px 0px 20px;
+  margin: 20px 0px 0px 40px;
 `;
 
 const Author = styled.p`
   font-size: 0.8rem;
   font-style: italic;
-  margin-left: 40px;
+  margin-left: 60px;
 `;
 
 const Date = styled.p`
   font-size: 0.6rem;
   position: relative;
   bottom: 10px;
-  margin-left: 40px;
+  margin-left: 60px;
 `;
 
 const Comment = styled.p`
   margin-left: 20px;
   font-size: 0.8rem;
-  width: 85%;
+  width: 90%;
   position: relative;
-  bottom: 25px;
+  bottom: 15px;
 `;
 
 function CommentCard(props) {
-  const [heartCount, setHeartCount] = useState(0);
-  const [upCount, setUpCount] = useState(0);
-  const [downCount, setDownCount] = useState(0);
-
   return (
     <Container>
       <InfoContainer>
@@ -78,22 +58,7 @@ function CommentCard(props) {
         <Author>{props.curr.author}</Author>
         <Date>{props.curr.date}</Date>
       </InfoContainer>
-      <Reaction>
-        <Icon onClick={() => setHeartCount(heartCount + 1)}>
-          <FaHeart className="commentIcon" />
-          {heartCount}
-        </Icon>
-        <Icon onClick={() => setUpCount(upCount + 1)}>
-          <FaRegThumbsUp className="commentIcon" />
-          {upCount}
-        </Icon>
-        <Icon onClick={() => setDownCount(downCount + 1)}>
-          <FaRegThumbsDown className="commentIcon" />
-          {downCount}
-        </Icon>
-      </Reaction>
-      <br />
-      <Comment>{props.curr.comment}</Comment>
+      <Comment>{props.curr.text}</Comment>
     </Container>
   );
 }
