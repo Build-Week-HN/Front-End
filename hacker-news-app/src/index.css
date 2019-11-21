@@ -33,7 +33,7 @@ code {
     monospace;
 }
 
-.signup {
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -182,4 +182,8 @@ p {
   display: flex;
   margin-left: 125px;
   border-radius: 30px;
+}
+.toolbar .toolbar_logo img {
+  opacity: 0.6;
+  top: 20px;
 }

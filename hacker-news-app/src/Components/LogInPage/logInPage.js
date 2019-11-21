@@ -48,6 +48,26 @@ const Button = styled(NavLink)`
 
   &:hover {
     color: #5c94bd;
+    width: 80%;
+    padding: 10px;
+    border-top: 2px solid #470938;
+    margin: 20px auto 0px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+`;
+
+const Button = styled.button`
+  color: white;
+  background-color: #5c94bd;
+  padding: 6px;
+  margin: 0px auto 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 0.6rem;
+
+  &:hover {
+    color: #5c94bd;
     background-color: white;
     border: 1px solid #5c94bd;
   }
@@ -160,7 +180,6 @@ const LogInForm = withFormik({
         formikbag.props.setUser(decode(response.data.token).name);
       })
       .catch(error => {
-        // debugger;
         formikbag.props.setError(error.message);
       });
   }

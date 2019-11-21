@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 import "./index.css";
@@ -14,6 +14,12 @@ import HeaderText from "./Components/LatestNews/LatestNews/styles/HeaderText";
 import Wrapper from "./Components/LatestNews/LatestNews/styles/Wrapper";
 import LatestNews from "./Components/LatestNews/LatestNews/LatestNews";
 import LandingPage from "./Components/LandingPage";
+import { ThemeProvider } from "styled-components";
+import Footer from "./Components/Footer/Footer";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Comment from "./assets/comment.png";
+import Avatar from "./assets/avatar.png";
+import Hnclone from "./assets/hnclone.png";
 
 const Container = styled.div`
   width: 100vw;
@@ -23,6 +29,7 @@ function App() {
   const [user, setUser] = useState();
   const [token, setToken] = useState();
   const [userRoute, setUserRoute] = useState("/login");
+
   const [error, setError] = useState(null);
   const [comments, setComments] = useState([
     {
@@ -81,16 +88,20 @@ function App() {
               <HeaderText>Latest News:</HeaderText>
               {hnData.map((curr, index) => {
                 return (
-                  <Wrapper>
-                    <LatestNews
-                      key={index}
-                      text={curr.text}
-                      title={curr.title}
-                      author={curr.author}
-                      comment_count={curr.comment_count}
-                      url={curr.url}
-                    />
-                  </Wrapper>
+                  <ThemeProvider theme={theme}>
+                    <Wrapper>
+                      <LatestNews
+                        key={index}
+                        text={curr.text}
+                        img
+                        src={Avatar}
+                        title={curr.title}
+                        author={curr.author}
+                        url={curr.url}
+                        comment_count={curr.comment_count}
+                      />
+                    </Wrapper>
+                  </ThemeProvider>
                 );
               })}
             </div>
@@ -145,6 +156,12 @@ function App() {
               setComments={setComments}
             />
           );
+        }}
+      />
+      <Route
+        path="/"
+        render={props => {
+          return <Footer />;
         }}
       />
     </Container>

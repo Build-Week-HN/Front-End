@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+
 const Header = styled.div`
   /* box-shadow: 5px black; */
   background-color: #effffa;
@@ -22,13 +23,17 @@ const Header = styled.div`
     cursor: pointer;
   }
 `;
+
 const LatestNews = props => (
   <Header>
     <h1>{props.title}</h1>
     <p>{props.text}</p>
-    <p>{props.author}</p>
-    <p>{props.comment_count}</p>
+    <p>{props.author}😃</p>
+    <p>{props.comment_count}💬</p>
+    <p>{props.url}</p>
+
     {/* <Image src = {props.url} />  */}
   </Header>
 );
+
 export default LatestNews;
