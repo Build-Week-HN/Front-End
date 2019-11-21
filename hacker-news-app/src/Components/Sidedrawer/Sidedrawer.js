@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Route, Link } from 'react-router-dom';
+import { Route, Link } from "react-router-dom";
 
 const TopNav = styled.nav`
   height: 100%;
@@ -39,24 +39,26 @@ function Sidedrawer(props) {
     <TopNav className="side-drawer" onClick={() => props.toggleButton()}>
       <UnorderedList>
         <ItemList>
+          <Link to="/home">
+            <Anchor href="/">Home</Anchor>
+          </Link>
+        </ItemList>
+        <ItemList>
           <Anchor href="/">Latest News</Anchor>
         </ItemList>
         <ItemList>
           <Anchor href="/">Users</Anchor>
         </ItemList>
         <ItemList>
-          <Anchor href="/">Jobs</Anchor>
-        </ItemList>
-        <ItemList>
-          <Anchor href="/community">Community</Anchor>
+          <Anchor href="/">Community</Anchor>
         </ItemList>
         <ItemList>
           <Anchor href="/">Teams</Anchor>
         </ItemList>
         <Link to="/register">
-        <ItemList>
-          <Anchor href="/register">Register</Anchor>
-        </ItemList>
+          <ItemList>
+            <Anchor href="/register">Register</Anchor>
+          </ItemList>
         </Link>
         <ItemList>
           <Anchor href="/login">Login</Anchor>

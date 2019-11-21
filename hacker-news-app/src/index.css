@@ -1,5 +1,7 @@
 <<<<<<< HEAD:news-website/src/index.css
 @import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
 
 html,
 body,
@@ -64,7 +66,7 @@ p{
 .picture{
   border: 5px solid white;
   width: 350px;
-  height: 370px;
+  height: 450px;
   align-content: center;
   border-radius: 15px;
   margin-left: 130px;
@@ -108,4 +110,87 @@ p{
 
 .signup {
   background-image: url(./components//Images//absolutvision-bSlHKWxxXak-unsplash.jpg);
+}
+
+.section1 {
+  height: 35em;
+  display: flex;
+  flex-direction: row;
+  margin-top: 130px;
+  justify-content: space-between;
+}
+
+.description {
+  width: 40%;
+  margin: 0 auto;
+}
+.image {
+  width: 40%;
+  margin: 0 auto;
+}
+.pics {
+  height: 32em;
+  width: 44em;
+  border-radius: 35px;
+  margin-left: -120px;
+}
+
+.google {
+  width: 12em;
+  margin-right: 8px;
+  margin-top: 50px;
+}
+
+.lead {
+  font-weight: bold;
+  font-size: 30px;
+  font-family: Roboto;
+}
+.sub-text {
+  font-family: Roboto;
+  font-size: 25px;
+}
+
+.second-text {
+  font-family: Raleway;
+  line-height: 2;
+  color: gray;
+}
+
+.section2 {
+  height: 20em;
+  margin-top: 15em;
+}
+
+.narration,
+.narration1,
+.narration2 {
+  margin: 0 auto;
+  width: 75%;
+}
+.schedule {
+  font-family: Roboto;
+  font-size: 30px;
+}
+
+.txt {
+  line-height: 2;
+  font-family: Raleway;
+  color: gray;
+  font-size: 22px;
+  text-align: center;
+}
+
+.section5 {
+  margin-top: 120px;
+  height: 50em;
+}
+
+.picture {
+  width: 80%;
+  margin-top: 80px;
+  display: flex;
+  margin-left: 125px;
+  border-radius: 30px;
+  height: 30em;
 }
