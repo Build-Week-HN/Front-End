@@ -126,7 +126,7 @@ const AddCommentForm = withFormik({
     axios
       .post("https://bw-hackernews.herokuapp.com/community", commentData)
       .then(response => {
-        formikbag.props.setComments(commentData, [...formikbag.props.comments]);
+        formikbag.props.setComments([commentData, ...formikbag.props.comments]);
         formikbag.resetForm();
       })
       .catch(error => {
