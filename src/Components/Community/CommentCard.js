@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { FaHeart, FaRegThumbsDown, FaRegThumbsUp } from "react-icons/fa";
 
 const Container = styled.div`
   width: calc(100% - 2px);

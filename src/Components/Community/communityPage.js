@@ -33,12 +33,15 @@ const CommunityLinks = styled(NavLink)`
   }
 `;
 
-const CommentsContainer = styled.div`
-  width: 100%;
-`;
-
 function CommunityPage(props) {
   const [newComment, setNewComment] = useState({});
+
+  const newarr = props.comments;
+
+  const CommentsContainer = styled.div`
+    width: 100%;
+  `;
+  console.log("Community page", props);
 
   return (
     <Container>
@@ -54,7 +57,7 @@ function CommunityPage(props) {
               {...states}
               newComment={newComment}
               setNewComment={setNewComment}
-              comments={props.comments}
+              newarr={newarr}
               setComments={props.setComments}
               setError={props.setError}
             />
@@ -62,17 +65,20 @@ function CommunityPage(props) {
         }}
       />
       <CommentsContainer>
-        {props.comments.map((curr, index) => {
-          return (
-            <div key={index}>
-              <CommentCard
-                curr={curr}
-                index={index}
-                comments={props.comments}
-              />
-            </div>
-          );
-        })}
+        {newarr.length === 0 ? (
+          <div>
+            {" "}
+            <p>There are currently no comments</p>
+          </div>
+        ) : (
+          newarr.map((curr, index) => {
+            return (
+              <div key={index}>
+                <CommentCard curr={curr} index={index} />
+              </div>
+            );
+          })
+        )}
       </CommentsContainer>
     </Container>
   );

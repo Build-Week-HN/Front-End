@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { withFormik, Field, Form, ErrorMessage } from "formik";
@@ -47,7 +47,7 @@ const Label = styled.label`
   margin: 0px 10px;
 `;
 
-const Submit = styled.button`
+const Submit = styled.input`
   color: #1a3e59;
   border: 2px solid #1a3e59;
   border-radius: 5px;
@@ -99,7 +99,7 @@ function AddComment(props) {
             <ErrorMessage name="text" render={err => <Error>{err}</Error>} />
           </InfoError>
           <br />
-          <Submit value="Submit" onClick={handleSubmit} />
+          <Submit type="submit" />
         </Form>
       </CommentCard>
     </Container>
@@ -126,12 +126,12 @@ const AddCommentForm = withFormik({
     axios
       .post("https://bw-hackernews.herokuapp.com/community", commentData)
       .then(response => {
-        formikbag.props.setComments(commentData, [...formikbag.props.comments]);
+        formikbag.props.setComments(commentData, [...formikbag.props.newarr]);
         formikbag.resetForm();
       })
       .catch(error => {
         formikbag.setErrors(error.message);
-      });
+      }, []);
   }
 })(AddComment);
 
