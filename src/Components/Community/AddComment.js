@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { withFormik, Field, Form, ErrorMessage } from "formik";
@@ -71,8 +71,6 @@ const Error = styled.div`
 `;
 
 function AddComment(props) {
-  console.log(props);
-
   return (
     <Container>
       <CommentCard>
@@ -124,15 +122,16 @@ const AddCommentForm = withFormik({
   }),
 
   handleSubmit(commentData, formikbag) {
+    console.log(formikbag);
     axios
       .post("https://bw-hackernews.herokuapp.com/community", commentData)
       .then(response => {
-        formikbag.props.setComments(commentData, [...formikbag.props.comments]);
+        formikbag.props.setComments([commentData, ...formikbag.props.comments]);
         formikbag.resetForm();
       })
       .catch(error => {
         formikbag.setErrors(error.message);
-      });
+      }, []);
   }
 })(AddComment);
 

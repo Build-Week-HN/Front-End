@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { gsap } from "gsap";
 
 const FeedContainer = styled.div`
   margin-top: 30px;

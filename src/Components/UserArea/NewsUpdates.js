@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { gsap, TweenMax } from "gsap";
 
 const FeedContainer = styled.div`
   margin-top: 30px;
@@ -42,20 +41,9 @@ const Container = styled.div`
 `;
 
 function NewsUpdates(props) {
-  
-  // const [animation, setAnimation] = useState(null)
-  
-  // useEffect(() => {
-    
-  //   setAnimation(
-  //     TweenMax.to(".container", 10, {y:})
-
-  //     )
-  //   }) 
-    
-    function handleClick(e) {
-      e.currentTarget.classList.toggle("show");
-    }
+  function handleClick(e) {
+    e.currentTarget.classList.toggle("show");
+  }
 
   function createHTML(props) {
     return { __html: props };

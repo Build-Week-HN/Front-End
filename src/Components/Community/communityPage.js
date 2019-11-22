@@ -33,14 +33,14 @@ const CommunityLinks = styled(NavLink)`
   }
 `;
 
-const CommentsContainer = styled.div`
-  width: 100%;
-`;
-
 function CommunityPage(props) {
   const [newComment, setNewComment] = useState({});
 
-  console.log("This is community props", props);
+  const CommentsContainer = styled.div`
+    width: 100%;
+  `;
+  console.log("Community page", props);
+
   return (
     <Container>
       <SubHeading>
@@ -66,11 +66,7 @@ function CommunityPage(props) {
         {props.comments.map((curr, index) => {
           return (
             <div key={index}>
-              <CommentCard
-                curr={curr}
-                index={index}
-                comments={props.comments}
-              />
+              <CommentCard curr={curr} index={index} />
             </div>
           );
         })}
