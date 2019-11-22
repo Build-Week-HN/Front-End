@@ -40,7 +40,6 @@ const CommentsContainer = styled.div`
 function CommunityPage(props) {
   const [newComment, setNewComment] = useState({});
 
-  console.log("This is community props", props);
   return (
     <Container>
       <SubHeading>

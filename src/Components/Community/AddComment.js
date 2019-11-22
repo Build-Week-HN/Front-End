@@ -47,7 +47,7 @@ const Label = styled.label`
   margin: 0px 10px;
 `;
 
-const Submit = styled.input`
+const Submit = styled.button`
   color: #1a3e59;
   border: 2px solid #1a3e59;
   border-radius: 5px;
@@ -71,8 +71,6 @@ const Error = styled.div`
 `;
 
 function AddComment(props) {
-  console.log(props);
-
   return (
     <Container>
       <CommentCard>
@@ -101,7 +99,7 @@ function AddComment(props) {
             <ErrorMessage name="text" render={err => <Error>{err}</Error>} />
           </InfoError>
           <br />
-          <Submit type="submit" />
+          <Submit value="Submit" onClick={handleSubmit} />
         </Form>
       </CommentCard>
     </Container>
@@ -124,6 +122,7 @@ const AddCommentForm = withFormik({
   }),
 
   handleSubmit(commentData, formikbag) {
+    console.log(formikbag);
     axios
       .post("https://bw-hackernews.herokuapp.com/community", commentData)
       .then(response => {
