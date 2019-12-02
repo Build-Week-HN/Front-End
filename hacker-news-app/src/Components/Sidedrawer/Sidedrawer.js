@@ -41,18 +41,18 @@ function Sidedrawer(props) {
         <ItemList>
           <Anchor href="/">Latest News</Anchor>
         </ItemList>
-        <ItemList>
+        {/* <ItemList>
           <Anchor href="/">Users</Anchor>
-        </ItemList>
-        <ItemList>
+        </ItemList> */}
+        {/* <ItemList>
           <Anchor href="/">Jobs</Anchor>
-        </ItemList>
+        </ItemList> */}
         <ItemList>
           <Anchor href="/community">Community</Anchor>
         </ItemList>
-        <ItemList>
+        {/* <ItemList>
           <Anchor href="/">Teams</Anchor>
-        </ItemList>
+        </ItemList> */}
         <ItemList>
           <Anchor href="/register">Register</Anchor>
         </ItemList>
